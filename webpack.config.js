@@ -73,6 +73,14 @@ module.exports = {
         exclude: /node_modules/, //folder to be excluded
         use: 'babel-loader', //loader which we are going to use
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
 }
