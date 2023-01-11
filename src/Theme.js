@@ -27,6 +27,9 @@ const theme = {
     secondary: colors.red,
     tertiary: colors.blue,
   },
+  shadows: {
+    large: '0px 8px 32px rgba(0, 0, 0, 0.08)',
+  },
 }
 
 const Theme = props => {
