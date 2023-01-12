@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Button = styled.button`
+const TextLessButton = styled.button`
   padding: 8px;
 
   width: 40px;
@@ -35,4 +35,4 @@ const Button = styled.button`
   }
 `
 
-export default Button
+export default TextLessButton

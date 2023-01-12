@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import CardDefault from '../UI/Card'
-import ButtonDefault from '../UI/Button'
+import CardDefault from '../../UI/Card'
+import TextLessButtonDefault from '../../UI/Button/TextLess'
 
 export const Card = styled(CardDefault)`
   padding-left: 0;
@@ -11,7 +11,7 @@ export const Card = styled(CardDefault)`
   gap: 30px;
 `
 
-export const Button = styled(ButtonDefault)`
+export const Button = styled(TextLessButtonDefault)`
   align-self: flex-end;
 
   margin-right: 29px;
