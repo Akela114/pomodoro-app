@@ -1,12 +1,32 @@
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 import CardDefault from '../../UI/Card'
 
 export const Card = styled(CardDefault)`
+  width: 100%;
+  flex-shrink: 0;
+
   padding-left: 0;
   padding-right: 0;
 
   gap: 30px;
+
+  box-shadow: none;
+  border-radius: 0;
+
+  ${props =>
+    props.state === 'entering'
+      ? css`
+          animation: ${slideInAnimation} ${props.timeout}ms ease-out forwards;
+        `
+      : ''}
+
+  ${props =>
+    props.state === 'exiting'
+      ? css`
+          animation: ${slideOutAnimation} ${props.timeout}ms ease-out forwards;
+        `
+      : ''}
 `
 
 export const Header = styled.header`
@@ -87,4 +107,27 @@ SettingsBlock.Body = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+`
+
+// Animations
+const slideInAnimation = keyframes`
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+`
+
+const slideOutAnimation = keyframes`
+  0% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
 `

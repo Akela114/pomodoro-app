@@ -1,14 +1,34 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 import CardDefault from '../../UI/Card'
 import TextLessButtonDefault from '../../UI/Button/TextLess'
 
 export const Card = styled(CardDefault)`
+  width: 100%;
+  flex-shrink: 0;
+
   padding-left: 0;
   padding-right: 0;
 
   gap: 30px;
+
+  box-shadow: none;
+  border-radius: 0;
+
+  ${props =>
+    props.state === 'entering'
+      ? css`
+          animation: ${slideInAnimation} ${props.timeout}ms ease-out forwards;
+        `
+      : ''}
+
+  ${props =>
+    props.state === 'exiting'
+      ? css`
+          animation: ${slideOutAnimation} ${props.timeout}ms ease-out forwards;
+        `
+      : ''}
 `
 
 export const Button = styled(TextLessButtonDefault)`
@@ -138,4 +158,27 @@ StatsItem.Description = styled.div`
   color: ${props => props.theme.colors.secondary.middle};
 
   text-align: center;
+`
+
+// Animations
+const slideInAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`
+
+const slideOutAnimation = keyframes`
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 `
