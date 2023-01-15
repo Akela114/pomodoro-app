@@ -11,6 +11,8 @@ const SettingsItem = props => {
         labelText={props.labelText}
         labelIcon={props.labelIcon}
         id={props.inputId}
+        value={props.value}
+        onChange={props.onChange}
       />
     </Item>
   )

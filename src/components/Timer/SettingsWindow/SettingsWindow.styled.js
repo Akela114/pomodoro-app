@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components'
 
 import CardDefault from '../../UI/Card'
+import ButtonWithText from '../../UI/Button/WithText'
 
 export const Card = styled(CardDefault)`
   width: 100%;
@@ -66,6 +67,8 @@ Header.Button = styled.button`
 `
 
 export const Body = styled.div`
+  position: relative;
+
   padding: 0 29px;
 
   flex: 1;
@@ -109,6 +112,55 @@ SettingsBlock.Body = styled.div`
   gap: 20px;
 `
 
+export const Actions = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+Actions.Notification = styled.div`
+  font-size: 15px;
+  font-weight: 400;
+
+  flex: 1;
+
+  padding: 6px 30px;
+
+  color: ${props => props.theme.colors.primary.dark};
+
+  border: 2px solid ${props => props.theme.colors.secondary.middle};
+  border-radius: 100px;
+
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  ${props =>
+    props.state === 'entering'
+      ? css`
+          animation: ${notificationSlideInAnimation} ${props.timeout}ms ease-out
+            forwards;
+        `
+      : ''}
+
+  ${props =>
+    props.state === 'exiting'
+      ? css`
+          animation: ${notificationSlideOutAnimation} ${props.timeout}ms
+            ease-out forwards;
+        `
+      : ''}
+`
+
+Actions.Button = styled(ButtonWithText)`
+  ${props =>
+    props.state === 'entering' || props.state === 'entered'
+      ? `border-top-left-radius: 0;
+      border-bottom-left-radius: 0;`
+      : ''}
+
+  transition: all ${props => props.timeout}ms ease-out;
+`
+
 // Animations
 const slideInAnimation = keyframes`
   0% {
@@ -128,6 +180,35 @@ const slideOutAnimation = keyframes`
   }
   100% {
     opacity: 0;
+    transform: translateX(0);
+  }
+`
+
+const notificationSlideOutAnimation = keyframes`
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+    
+  }
+`
+
+const notificationSlideInAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
     transform: translateX(0);
   }
 `

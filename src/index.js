@@ -2,9 +2,11 @@ import React, { Fragment } from 'react'
 import ReactDom from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import { Provider } from 'react-redux'
 
 import GlobalStyle from './GlobalStyle'
 import Theme from './Theme'
+import store from './store/store'
 import App from './App'
 
 const root = ReactDom.createRoot(document.getElementById('root'))
@@ -18,10 +20,12 @@ root.render(
         rel="stylesheet"
       />
     </Helmet>
-    <BrowserRouter>
-      <Theme>
-        <App />
-      </Theme>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Theme>
+          <App />
+        </Theme>
+      </BrowserRouter>
+    </Provider>
   </Fragment>
 )

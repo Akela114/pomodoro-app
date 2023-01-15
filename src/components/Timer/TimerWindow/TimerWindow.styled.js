@@ -50,6 +50,7 @@ export const TimerData = styled.div`
 `
 
 export const MainInfo = styled.div`
+  width: 100%;
   text-align: center;
 `
 
@@ -61,10 +62,24 @@ MainInfo.Event = styled.div`
 `
 
 MainInfo.Value = styled.div`
+  display: flex;
+  justify-content: center;
+
   font-size: 100px;
   font-weight: 600;
+  gap: 8px;
 
   color: ${props => props.theme.colors.secondary.middle};
+`
+
+MainInfo.Minutes = styled.span`
+  flex: 1;
+  text-align: right;
+`
+
+MainInfo.Seconds = styled.span`
+  flex: 1;
+  text-align: left;
 `
 
 export const Actions = styled.ul`
