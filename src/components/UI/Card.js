@@ -11,6 +11,12 @@ const Card = styled.div`
   border-radius: 30px;
 
   box-shadow: ${props => props.theme.shadows.large};
+
+  gap: 20px;
+
+  @media (max-width: 1124px) {
+    border-radius: 12px;
+  }
 `
 
 export default Card

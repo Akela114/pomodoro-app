@@ -7,6 +7,10 @@ const Wrapper = styled(CardDefault)`
   flex-direction: row;
 
   overflow: hidden;
+
+  @media (max-width: 1124px) {
+    flex-direction: column;
+  }
 `
 
 export default Wrapper

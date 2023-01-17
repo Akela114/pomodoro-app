@@ -11,30 +11,54 @@ export const Card = styled(CardDefault)`
   padding-left: 0;
   padding-right: 0;
 
-  gap: 30px;
+  justify-content: space-between;
 
   box-shadow: none;
   border-radius: 0;
 
-  ${props =>
-    props.state === 'entering'
-      ? css`
-          animation: ${slideInAnimation} ${props.timeout}ms ease-out forwards;
-        `
-      : ''}
+  @media (min-width: 1125px) {
+    ${props =>
+      props.state === 'entering'
+        ? css`
+            animation: ${slideInAnimation} ${props.timeout}ms ease-out forwards;
+          `
+        : ''}
 
-  ${props =>
-    props.state === 'exiting'
-      ? css`
-          animation: ${slideOutAnimation} ${props.timeout}ms ease-out forwards;
-        `
-      : ''}
+    ${props =>
+      props.state === 'exiting'
+        ? css`
+            animation: ${slideOutAnimation} ${props.timeout}ms ease-out forwards;
+          `
+        : ''}
+  }
+
+  @media (max-width: 1124px) {
+    padding: 0;
+    position: relative;
+  }
 `
 
 export const Button = styled(TextLessButtonDefault)`
   align-self: flex-end;
 
   margin-right: 29px;
+
+  @media (max-width: 1124px) {
+    width: 35px;
+    height: 35px;
+
+    margin-right: 0;
+    position: absolute;
+    border-radius: 0 0 0 20px;
+
+    ${props =>
+      props.bgIcon
+        ? `background-image: url(${props.bgIcon});
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 16px 16px;`
+        : ''};
+  }
 `
 
 export const TimerData = styled.div`
@@ -44,9 +68,14 @@ export const TimerData = styled.div`
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  gap: 30px;
 
-  gap: 80px;
+  @media (max-width: 1124px) {
+    padding: 20px 0 0;
+    gap: 8px;
+  }
 `
 
 export const MainInfo = styled.div`
@@ -59,6 +88,10 @@ MainInfo.Event = styled.div`
   font-weight: 500;
 
   color: ${props => props.theme.colors.secondary.middle};
+
+  @media (max-width: 1124px) {
+    font-size: 18px;
+  }
 `
 
 MainInfo.Value = styled.div`
@@ -70,6 +103,10 @@ MainInfo.Value = styled.div`
   gap: 8px;
 
   color: ${props => props.theme.colors.secondary.middle};
+
+  @media (max-width: 1124px) {
+    font-size: 60px;
+  }
 `
 
 MainInfo.Minutes = styled.span`
@@ -113,6 +150,10 @@ const ActionButton = styled.button`
   &:active {
     background-color: ${props => props.theme.colors.secondary.dark};
   }
+
+  @media (max-width: 1124px) {
+    font-size: 18px;
+  }
 `
 
 Actions.Action = props => {
@@ -131,6 +172,10 @@ export const Stats = styled.ul`
 
   border: 2px solid ${props => props.theme.colors.secondary.middle};
   border-radius: 20px;
+
+  @media (max-width: 1124px) {
+    display: none;
+  }
 `
 
 export const StatsItem = styled.li`
@@ -145,6 +190,10 @@ export const StatsItem = styled.li`
   gap: 10px;
 
   height: 158px;
+
+  @media (max-width: 1399px) {
+    padding: 12px;
+  }
 `
 
 StatsItem.Data = styled.div`
@@ -157,6 +206,11 @@ StatsItem.Data = styled.div`
 StatsItem.Img = styled.img`
   width: 26px;
   height: 26px;
+
+  @media (max-width: 1399px) {
+    width: 22px;
+    height: 22px;
+  }
 `
 
 StatsItem.Value = styled.span`
@@ -164,6 +218,10 @@ StatsItem.Value = styled.span`
   font-weight: 500;
 
   color: ${props => props.theme.colors.secondary.middle};
+
+  @media (max-width: 1399px) {
+    font-size: 17px;
+  }
 `
 
 StatsItem.Description = styled.div`

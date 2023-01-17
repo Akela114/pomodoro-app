@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 
+import useWindowSize from '../../hooks/useWindowSize'
 import Wrapper from './Timer.styled'
 import TimerWindow from './TimerWindow'
 import SettingsWindow from './SettingsWindow'
 
 const Timer = () => {
+  const windowSize = useWindowSize()
+
   const [settingsWindowIsDisplayed, setSettingsWindowIsDisplayed] =
     useState(false)
 
@@ -18,7 +21,7 @@ const Timer = () => {
     <Wrapper>
       <TimerWindow
         onToggleDisplayedWindow={handleToggleDisplayedWindow}
-        isShown={!settingsWindowIsDisplayed}
+        isShown={windowSize.innerWidth < 1125 || !settingsWindowIsDisplayed}
         animationTime={animationTime}
       />
       <SettingsWindow

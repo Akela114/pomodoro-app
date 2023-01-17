@@ -40,6 +40,10 @@ Control.Input = styled.input`
   text-align: center;
 
   color: ${props => props.theme.colors.primary.dark};
+
+  @media (max-width: 1399px) {
+    font-size: 13px;
+  }
 `
 
 Control.Label = styled.label`
@@ -49,6 +53,10 @@ Control.Label = styled.label`
   font-weight: 400;
 
   color: ${props => props.theme.colors.primary.middle};
+
+  @media (max-width: 1399px) {
+    font-size: 13px;
+  }
 `
 
 Control.LabelIcon = styled.img`
@@ -58,6 +66,11 @@ Control.LabelIcon = styled.img`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 1399px) {
+    width: 17px;
+    height: 17px;
+  }
 `
 
 export const Actions = styled.div`
@@ -87,5 +100,9 @@ Actions.Button = styled.button`
 
   &:active {
     background-color: ${props => props.theme.colors.secondary.dark};
+  }
+
+  @media (max-width: 1399px) {
+    font-size: 14px;
   }
 `

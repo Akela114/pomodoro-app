@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 import { secondsToHM } from '../../../helpers/formatSeconds'
 
@@ -16,40 +16,61 @@ const pomodoroDuration = 1800
 const FirstTask = props => {
   const { hours, minutes } = secondsToHM(props.task.remainingTime)
 
-  const remainingPomodorosArray = [
-    Math.trunc(
-      (props.task.totalTime - props.task.remainingTime) / pomodoroDuration
-    ),
-    Math.trunc(props.task.remainingTime / pomodoroDuration),
-    props.task.remainingTime % pomodoroDuration !== 0 ? 1 : 0,
-  ].reduce(
-    (resArr, counter, idx) => [
-      ...resArr,
-      ...Array(counter)
-        .fill(undefined)
-        .map((_, i) =>
-          idx === 0 ? (
-            <Body.PomodorosRemainingItem
-              key={`passed-${i}`}
-              src={tomatoFullBWIcon}
-              alt="Tomato Full Black & White Icon"
-            />
-          ) : idx === 1 ? (
-            <Body.PomodorosRemainingItem
-              key={`left-full-${i}`}
-              src={tomatoFullIcon}
-              alt="Tomato Full Icon"
-            />
-          ) : (
-            <Body.PomodorosRemainingItem
-              key={`left-half`}
-              src={tomatoHalfIcon}
-              alt="Tomato Half Icon"
-            />
-          )
-        ),
-    ],
-    []
+  const pomodorosPassed = Math.trunc(
+    (props.task.totalTime - props.task.remainingTime) / pomodoroDuration
+  )
+  const pomodorosFullLeft = Math.trunc(
+    props.task.remainingTime / pomodoroDuration
+  )
+  const pomodorosHalfLeft =
+    props.task.remainingTime % pomodoroDuration !== 0 ? 1 : 0
+
+  const remainingPomodorosArray =
+    props.task.totalTime <= pomodoroDuration * 10
+      ? [pomodorosPassed, pomodorosFullLeft, pomodorosHalfLeft].reduce(
+          (resArr, counter, idx) => [
+            ...resArr,
+            ...Array(counter)
+              .fill(undefined)
+              .map((_, i) =>
+                idx === 0 ? (
+                  <Body.PomodorosRemainingItem
+                    key={`passed-${i}`}
+                    src={tomatoFullBWIcon}
+                    alt="Tomato Full Black & White Icon"
+                  />
+                ) : idx === 1 ? (
+                  <Body.PomodorosRemainingItem
+                    key={`left-full-${i}`}
+                    src={tomatoFullIcon}
+                    alt="Tomato Full Icon"
+                  />
+                ) : (
+                  <Body.PomodorosRemainingItem
+                    key={`left-half`}
+                    src={tomatoHalfIcon}
+                    alt="Tomato Half Icon"
+                  />
+                )
+              ),
+          ],
+          []
+        )
+      : null
+
+  const remainingPomodorosShort = (
+    <Fragment>
+      <Body.PomodorosRemainingItem
+        src={tomatoFullBWIcon}
+        alt="Tomato Full Black & White Icon"
+        color="primary"
+      >
+        x{pomodorosPassed}
+      </Body.PomodorosRemainingItem>
+      <Body.PomodorosRemainingItem src={tomatoFullIcon} alt="Tomato Full Icon">
+        x{pomodorosFullLeft + pomodorosHalfLeft * 0.5}
+      </Body.PomodorosRemainingItem>
+    </Fragment>
   )
 
   return (
@@ -70,7 +91,7 @@ const FirstTask = props => {
         </Body.RemainingTime>
         <Body.ElementsGroup>
           <Body.PomodorosRemaining>
-            {remainingPomodorosArray}
+            {remainingPomodorosArray || remainingPomodorosShort}
           </Body.PomodorosRemaining>
           <Body.Button bgIcon={checkIcon}></Body.Button>
         </Body.ElementsGroup>

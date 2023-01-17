@@ -24,6 +24,17 @@ export const Wrapper = styled.li`
 export const Title = styled.h2`
   font-size: 15px;
   font-weight: 400;
+
+  @media (max-width: 1399px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 399px) {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 `
 
 export const RemainingTime = styled.span`
@@ -31,6 +42,14 @@ export const RemainingTime = styled.span`
 
   font-size: 15px;
   font-weight: 400;
+
+  @media (max-width: 1399px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 499px) {
+    display: none;
+  }
 `
 
 export const ActionsGroup = styled.div`
@@ -55,4 +74,9 @@ ActionsGroup.Action = styled.button`
     background-position: center;
     background-size: 20px 20px;`
       : ''};
+
+  @media (max-width: 1399px) {
+    width: 18px;
+    height: 18px;
+  }
 `

@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { TasksGroup, TasksList, Button } from './TasksList'
-import Card from '../UI/Card'
+import { Wrapper, TasksGroup, TasksList, Button } from './TasksList'
 import FirstTask from './FirstTask'
 import ListItem from './ListItem'
 import plusIcon from '../../assets/icons/plus.svg'
@@ -50,7 +49,7 @@ const TasksInfo = () => {
   const anotherTasks = DUMMY_TASKS?.length > 1 ? DUMMY_TASKS.slice(1) : null
 
   return (
-    <Card>
+    <Wrapper>
       <TasksGroup>
         {firstTask && <FirstTask task={firstTask} />}
         {anotherTasks && (
@@ -65,7 +64,7 @@ const TasksInfo = () => {
         <Button.Icon src={plusIcon} alt="Plus Icon" />
         <Button.Text>Новая задача</Button.Text>
       </Button>
-    </Card>
+    </Wrapper>
   )
 }
 
