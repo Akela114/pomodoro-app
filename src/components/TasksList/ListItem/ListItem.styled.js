@@ -1,0 +1,58 @@
+import styled from 'styled-components'
+
+export const Wrapper = styled.li`
+  padding: 8px 32px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 20px;
+
+  background-color: ${props => props.theme.colors.white};
+
+  box-shadow: ${props => props.theme.shadows.medium};
+
+  transition: transform 0.25s ease-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+`
+
+export const Title = styled.h2`
+  font-size: 15px;
+  font-weight: 400;
+`
+
+export const RemainingTime = styled.span`
+  flex: 1;
+
+  font-size: 15px;
+  font-weight: 400;
+`
+
+export const ActionsGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`
+
+ActionsGroup.Action = styled.button`
+  width: 20px;
+  height: 20px;
+
+  background-color: transparent;
+  border: 0;
+
+  cursor: pointer;
+
+  ${props =>
+    props.bgIcon
+      ? `background-image: url(${props.bgIcon});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;`
+      : ''};
+`

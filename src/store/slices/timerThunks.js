@@ -26,6 +26,6 @@ const tickTimer = () => {
 export const startTimer = () => {
   return async dispatch => {
     dispatch(timerSliceActions.startTimer())
-    dispatch(tickTimer())
+    setTimeout(() => dispatch(tickTimer()), 1000)
   }
 }

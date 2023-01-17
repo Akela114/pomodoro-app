@@ -11,7 +11,7 @@ import {
   Stats,
   StatsItem,
 } from './TimerWindow.styled'
-import formatSecondsToTimerString from '../helpers/formatSecondsToTimerString'
+import { secondsToMS } from '../../../helpers/formatSeconds'
 import { startTimer } from '../../../store/slices/timerThunks'
 import { timerSliceActions } from '../../../store/slices/timerSlice'
 
@@ -41,9 +41,7 @@ const TimerWindow = props => {
       : timerState.currentEvent.type === 'shortBreak'
       ? 'короткий перерыв'
       : 'длинный перерыв'
-  const eventRemainingTime = formatSecondsToTimerString(
-    timerState.currentEvent.remainingTime
-  )
+  const eventRemainingTime = secondsToMS(timerState.currentEvent.remainingTime)
 
   return (
     <Transition
