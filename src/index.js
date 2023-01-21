@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 
 import GlobalStyle from './GlobalStyle'
 import Theme from './Theme'
-import store from './store/store'
+import store from './store'
 import App from './App'
 
 const root = ReactDom.createRoot(document.getElementById('root'))

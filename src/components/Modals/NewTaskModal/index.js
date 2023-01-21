@@ -10,13 +10,13 @@ import exitIcon from '../../../assets/icons/exit/exit-white.svg'
 const NewTaskModal = () => {
   const navigate = useNavigate()
 
-  const handleHideEditTaskModal = () => {
-    navigate('/')
+  const handleHideEditTaskModal = e => {
+    if (e.currentTarget === e.target) navigate('/')
   }
 
   return (
     <Portal>
-      <Wrapper>
+      <Wrapper onClick={handleHideEditTaskModal}>
         <Modal>
           <Modal.Header>
             <Modal.Title>Новая задача</Modal.Title>

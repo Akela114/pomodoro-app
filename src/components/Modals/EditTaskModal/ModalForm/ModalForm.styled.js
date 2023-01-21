@@ -9,6 +9,8 @@ export const Form = styled.form`
 `
 
 export const Controls = styled.div`
+  position: relative;
+
   display: flex;
   align-items: center;
   gap: 32px;
@@ -20,7 +22,31 @@ export const Controls = styled.div`
   }
 `
 
+Controls.WarningMessage = styled.div`
+  padding: 0 12px;
+
+  font-size: 13px;
+  font-weight: 500;
+  color: ${props => props.theme.colors.secondary.dark};
+
+  position: absolute;
+  top: -22px;
+  left: 12px;
+  z-index: 1;
+
+  @media (max-width: 530px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 410px) {
+    display: none;
+  }
+`
+
 Controls.TitleControl = styled.input`
+  position: relative;
+  z-index: 2;
+
   flex: 1;
 
   padding: 8px 24px;
@@ -38,7 +64,11 @@ Controls.TitleControl = styled.input`
   box-shadow: ${props => props.theme.shadows.small};
 
   &:focus {
-    outline: 1px solid ${props => props.theme.colors.tertiary.light};
+    outline: 1px solid
+      ${props =>
+        props.warning
+          ? props.theme.colors.secondary.light
+          : props.theme.colors.tertiary.light};
   }
 
   &::placeholder {

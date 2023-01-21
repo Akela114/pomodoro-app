@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Transition from 'react-transition-group/Transition'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { timerSliceActions } from '../../../store/slices/timerSlice'
+import { timerSliceActions } from '../../../store/slices/timer'
 import SettingsItem from './SettingsItem'
-import ButtonWithText from '../../UI/Button/WithText'
 import {
   Card,
   Header,

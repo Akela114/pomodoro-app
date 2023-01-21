@@ -1,4 +1,4 @@
-import { timerSliceActions } from './timerSlice'
+import { timerSliceActions } from '.'
 
 const tickTimer = () => {
   return async (dispatch, getState) => {

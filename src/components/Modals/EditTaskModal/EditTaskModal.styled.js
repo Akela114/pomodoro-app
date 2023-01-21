@@ -34,6 +34,7 @@ Modal.Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 
   background: ${props => props.theme.colors.tertiary.gradient};
 `
@@ -71,8 +72,18 @@ Modal.ExitButton = styled.button`
     height: 27px;
     background-size: 27px 27px;
   }
+
+  @media (max-width: 530px) {
+    width: 25px;
+    height: 25px;
+    background-size: 25px 25px;
+  }
 `
 
 Modal.Body = styled.div`
-  padding: 32px;
+  padding: 40px 32px;
+
+  @media (max-width: 410px) {
+    padding: 32px;
+  }
 `

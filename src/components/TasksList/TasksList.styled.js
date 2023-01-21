@@ -32,3 +32,24 @@ export const TasksList = styled.ul`
 export const Button = styled(ButtonWithText)`
   align-self: flex-end;
 `
+
+export const Message = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+  color: ${props => props.theme.colors.tertiary.dark};
+  text-align: center;
+
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1124px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 499px) {
+    font-size: 17px;
+  }
+`

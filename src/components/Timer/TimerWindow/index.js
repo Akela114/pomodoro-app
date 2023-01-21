@@ -12,8 +12,8 @@ import {
   StatsItem,
 } from './TimerWindow.styled'
 import { secondsToMS } from '../../../helpers/formatSeconds'
-import { startTimer } from '../../../store/slices/timerThunks'
-import { timerSliceActions } from '../../../store/slices/timerSlice'
+import { startTimer } from '../../../store/slices/timer/timerThunks'
+import { timerSliceActions } from '../../../store/slices/timer'
 
 import settingsIcon from '../../../assets/icons/settings.svg'
 import tomatoFullIcon from '../../../assets/icons/tomato/tomato-full.svg'
