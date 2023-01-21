@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-
-import { tasksSliceActions } from '../../../../store/slices/tasks'
+import { useSelector } from 'react-redux'
 
 import {
   Form,
@@ -9,15 +7,13 @@ import {
   InputBlock,
   InputActions,
   Action,
-} from './ModalForm.styled'
+} from '../../../UI/Modal/ModalWindowForm'
 
 import tomatoFullIcon from '../../../../assets/icons/tomato/tomato-full.svg'
 import chevronUpIcon from '../../../../assets/icons/chevron-up.svg'
 import chevronDownIcon from '../../../../assets/icons/chevron-down.svg'
 
-const ModalForm = () => {
-  const dispatch = useDispatch()
-
+const ModalForm = props => {
   const taskTitleInputRef = useRef(null)
 
   const pomodoroDuration = useSelector(
@@ -87,9 +83,7 @@ const ModalForm = () => {
       return
     }
 
-    dispatch(
-      tasksSliceActions.addTask({ title: taskTitle, duration: +taskDuration })
-    )
+    props.onAddNewTask(taskTitle, +taskDuration)
 
     setTaskTitle('')
     setTaskDuration('30')

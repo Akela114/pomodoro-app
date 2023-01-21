@@ -2,13 +2,10 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
-import Portal from '../../Portal'
+import ModalWindow from '../../UI/Modal'
 import ModalForm from './ModalForm'
-import { Wrapper, Modal } from './EditTaskModal.styled'
 
 import { tasksSliceActions } from '../../../store/slices/tasks'
-
-import exitIcon from '../../../assets/icons/exit/exit-white.svg'
 
 const EditTaskModal = () => {
   const dispatch = useDispatch()
@@ -31,23 +28,15 @@ const EditTaskModal = () => {
     navigate('/')
   }
 
+  const modalInfo = {
+    title: 'Редактирование задачи',
+    onHide: handleHideEditTaskModal,
+  }
+
   return (
-    <Portal>
-      <Wrapper onClick={handleHideEditTaskModal}>
-        <Modal>
-          <Modal.Header>
-            <Modal.Title>Редактирование задачи</Modal.Title>
-            <Modal.ExitButton
-              bgIcon={exitIcon}
-              onClick={handleHideEditTaskModal}
-            />
-          </Modal.Header>
-          <Modal.Body>
-            <ModalForm task={taskToEdit} onEditTask={handleEditTask} />
-          </Modal.Body>
-        </Modal>
-      </Wrapper>
-    </Portal>
+    <ModalWindow modal={modalInfo}>
+      <ModalForm task={taskToEdit} onEditTask={handleEditTask} />
+    </ModalWindow>
   )
 }
 

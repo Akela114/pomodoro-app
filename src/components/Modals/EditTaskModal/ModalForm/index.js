@@ -7,7 +7,7 @@ import {
   InputBlock,
   InputActions,
   Action,
-} from './ModalForm.styled'
+} from '../../../UI/Modal/ModalWindowForm'
 
 import tomatoFullIcon from '../../../../assets/icons/tomato/tomato-full.svg'
 import chevronUpIcon from '../../../../assets/icons/chevron-up.svg'

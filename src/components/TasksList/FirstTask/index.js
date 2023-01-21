@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { secondsToHM } from '../../../helpers/formatSeconds'
 
@@ -12,10 +13,12 @@ import tomatoFullIcon from '../../../assets/icons/tomato/tomato-full.svg'
 import tomatoFullBWIcon from '../../../assets/icons/tomato/tomato-full-bw.svg'
 import tomatoHalfIcon from '../../../assets/icons/tomato/tomato-half.svg'
 
-const pomodoroDuration = 1800
-
 const FirstTask = props => {
   const navigate = useNavigate()
+
+  const pomodoroDuration = useSelector(
+    state => state.timer.settings.timeSegmentsDuration.pomodoro * 60
+  )
 
   const handleShowEditTaskModal = () => {
     navigate(`/edit-task/${props.task.id}`)

@@ -18,8 +18,8 @@ const tasksSlice = createSlice({
 
       if (title) taskToChange.title = title
       if (duration) {
-        taskToChange.remainingTime = duration * 60
         taskToChange.totalTime -= taskToChange.remainingTime - duration * 60
+        taskToChange.remainingTime = duration * 60
       }
     },
   },

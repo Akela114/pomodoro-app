@@ -1,36 +1,33 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
-import Portal from '../../Portal'
+import Modal from '../../UI/Modal'
 import ModalForm from './ModalForm'
-import { Wrapper, Modal } from './NewTaskModal.styled'
 
-import exitIcon from '../../../assets/icons/exit/exit-white.svg'
+import { tasksSliceActions } from '../../../store/slices/tasks'
 
 const NewTaskModal = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleHideEditTaskModal = e => {
     if (e.currentTarget === e.target) navigate('/')
   }
 
+  const handleAddNewTask = (title, duration) => {
+    dispatch(tasksSliceActions.addTask({ title, duration }))
+  }
+
+  const modalInfo = {
+    title: 'Новая задача',
+    onHide: handleHideEditTaskModal,
+  }
+
   return (
-    <Portal>
-      <Wrapper onClick={handleHideEditTaskModal}>
-        <Modal>
-          <Modal.Header>
-            <Modal.Title>Новая задача</Modal.Title>
-            <Modal.ExitButton
-              bgIcon={exitIcon}
-              onClick={handleHideEditTaskModal}
-            />
-          </Modal.Header>
-          <Modal.Body>
-            <ModalForm />
-          </Modal.Body>
-        </Modal>
-      </Wrapper>
-    </Portal>
+    <Modal modal={modalInfo}>
+      <ModalForm onAddNewTask={handleAddNewTask} />
+    </Modal>
   )
 }
 
