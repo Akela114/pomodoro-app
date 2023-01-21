@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { secondsToHM } from '../../../helpers/formatSeconds'
 
@@ -14,6 +15,12 @@ import tomatoHalfIcon from '../../../assets/icons/tomato/tomato-half.svg'
 const pomodoroDuration = 1800
 
 const FirstTask = props => {
+  const navigate = useNavigate()
+
+  const handleShowEditTaskModal = () => {
+    navigate(`/edit-task/${props.task.id}`)
+  }
+
   const { hours, minutes } = secondsToHM(props.task.remainingTime)
 
   const pomodorosPassed = Math.trunc(
@@ -78,7 +85,10 @@ const FirstTask = props => {
       <Header>
         <Header.Title>{props.task.title}</Header.Title>
         <Header.ActionsGroup>
-          <Header.Action bgIcon={editIcon}></Header.Action>
+          <Header.Action
+            bgIcon={editIcon}
+            onClick={handleShowEditTaskModal}
+          ></Header.Action>
           <Header.Action bgIcon={exitIcon}></Header.Action>
         </Header.ActionsGroup>
       </Header>

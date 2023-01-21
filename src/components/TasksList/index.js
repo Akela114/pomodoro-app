@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { Wrapper, TasksGroup, TasksList, Button } from './TasksList'
 import FirstTask from './FirstTask'
 import ListItem from './ListItem'
+
 import plusIcon from '../../assets/icons/plus.svg'
 
 const DUMMY_TASKS = [
@@ -45,6 +47,12 @@ const DUMMY_TASKS = [
 ]
 
 const TasksInfo = () => {
+  const navigate = useNavigate()
+
+  const handleShowCreateNewTaskModal = () => {
+    navigate('/create-new-task')
+  }
+
   const firstTask = DUMMY_TASKS?.[0]
   const anotherTasks = DUMMY_TASKS?.length > 1 ? DUMMY_TASKS.slice(1) : null
 
@@ -60,7 +68,7 @@ const TasksInfo = () => {
           </TasksList>
         )}
       </TasksGroup>
-      <Button color="tertiary">
+      <Button color="tertiary" onClick={handleShowCreateNewTaskModal}>
         <Button.Icon src={plusIcon} alt="Plus Icon" />
         <Button.Text>Новая задача</Button.Text>
       </Button>

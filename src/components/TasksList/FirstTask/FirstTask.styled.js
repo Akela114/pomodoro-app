@@ -26,9 +26,6 @@ Header.Title = styled.h2`
   font-size: 16px;
   font-weight: 500;
 
-  overflow: hidden;
-
-  white-space: nowrap;
   text-overflow: ellipsis;
 
   @media (max-width: 1399px) {
@@ -40,6 +37,10 @@ Header.ActionsGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 399px) {
+    flex-direction: column-reverse;
+  }
 `
 
 Header.Action = styled.button`

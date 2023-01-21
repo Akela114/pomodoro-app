@@ -32,7 +32,6 @@ export const Title = styled.h2`
   @media (max-width: 399px) {
     overflow: hidden;
 
-    white-space: nowrap;
     text-overflow: ellipsis;
   }
 `
@@ -40,11 +39,11 @@ export const Title = styled.h2`
 export const RemainingTime = styled.span`
   flex: 1;
 
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
 
   @media (max-width: 1399px) {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   @media (max-width: 499px) {
@@ -56,6 +55,10 @@ export const ActionsGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 399px) {
+    flex-direction: column-reverse;
+  }
 `
 
 ActionsGroup.Action = styled.button`

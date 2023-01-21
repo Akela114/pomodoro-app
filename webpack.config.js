@@ -51,6 +51,7 @@ module.exports = {
      * disable live reload on the browser. "hot" must be set to false for this to work
      */
     liveReload: true,
+    historyApiFallback: true,
   },
   resolve: {
     /** "extensions"

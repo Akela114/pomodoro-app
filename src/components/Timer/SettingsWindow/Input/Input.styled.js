@@ -101,8 +101,4 @@ Actions.Button = styled.button`
   &:active {
     background-color: ${props => props.theme.colors.secondary.dark};
   }
-
-  @media (max-width: 1399px) {
-    font-size: 14px;
-  }
 `

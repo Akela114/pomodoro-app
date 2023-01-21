@@ -68,7 +68,7 @@ export const TimerData = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 30px;
 

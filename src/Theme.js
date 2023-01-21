@@ -12,11 +12,15 @@ const colors = {
     light: '#ff8282',
     middle: '#c84b4b',
     dark: '#aa2d2d',
+    gradient:
+      'linear-gradient(90deg, rgba(16, 16, 16, 0.2) 0%, rgba(16, 16, 16, 0) 100%), #C84B4B',
   },
   blue: {
     light: '#6ea8e1',
     middle: '#3271af',
     dark: '#0a4987',
+    gradient:
+      'linear-gradient(90deg, rgba(16, 16, 16, 0.2) 0%, rgba(16, 16, 16, 0) 100%), #3271AF',
   },
 }
 
