@@ -11,8 +11,8 @@ const NewTaskModal = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleHideEditTaskModal = e => {
-    if (e.currentTarget === e.target) navigate('/')
+  const handleHideEditTaskModal = (e = null) => {
+    if (!e || e.currentTarget === e.target) navigate('/')
   }
 
   const handleAddNewTask = (title, duration) => {
@@ -26,7 +26,10 @@ const NewTaskModal = () => {
 
   return (
     <Modal modal={modalInfo}>
-      <ModalForm onAddNewTask={handleAddNewTask} />
+      <ModalForm
+        onAddNewTask={handleAddNewTask}
+        onHideModal={handleHideEditTaskModal}
+      />
     </Modal>
   )
 }

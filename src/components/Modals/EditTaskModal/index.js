@@ -16,8 +16,8 @@ const EditTaskModal = () => {
     state.tasks.find(task => task.id === taskId)
   )
 
-  const handleHideEditTaskModal = e => {
-    if (e.currentTarget === e.target) navigate('/')
+  const handleHideEditTaskModal = (e = null) => {
+    if (!e || e.currentTarget === e.target) navigate('/')
   }
 
   const handleEditTask = (title, duration) => {
@@ -35,7 +35,11 @@ const EditTaskModal = () => {
 
   return (
     <ModalWindow modal={modalInfo}>
-      <ModalForm task={taskToEdit} onEditTask={handleEditTask} />
+      <ModalForm
+        task={taskToEdit}
+        onEditTask={handleEditTask}
+        onHideModal={handleHideEditTaskModal}
+      />
     </ModalWindow>
   )
 }

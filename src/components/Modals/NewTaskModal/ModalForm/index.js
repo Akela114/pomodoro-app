@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 
 import {
@@ -28,6 +28,15 @@ const ModalForm = props => {
     setTimeout(() => taskTitleInputRef.current.focus())
   }, [])
 
+  useEffect(() => {
+    const handleTryToHideModal = e => {
+      if (e.key === 'Escape') props.onHideModal()
+    }
+
+    window.addEventListener('keydown', handleTryToHideModal)
+    return () => window.removeEventListener('keydown', handleTryToHideModal)
+  }, [])
+
   const handleTaskTitleChange = e => {
     const value = e.target.value
 
@@ -44,7 +53,28 @@ const ModalForm = props => {
     setTaskDuration(targetValue)
   }
 
+  const handleTryToChangeValue = useCallback(e => {
+    switch (e.key) {
+      case 'ArrowUp':
+        handleTaskDurationIncrement()
+        break
+      case 'ArrowDown':
+        handleTaskDurationDecrement()
+        break
+      case 'Tab':
+        e.preventDefault()
+        taskTitleInputRef.current.focus()
+        break
+    }
+  }, [])
+
+  const handleTaskDurationFocus = () => {
+    window.addEventListener('keydown', handleTryToChangeValue)
+  }
+
   const handleTaskDurationBlur = e => {
+    window.removeEventListener('keydown', handleTryToChangeValue)
+
     let targetValue = e.target.value
 
     if (targetValue !== '') return
@@ -121,6 +151,7 @@ const ModalForm = props => {
               type="text"
               value={taskDuration}
               onChange={handleTaskDurationChange}
+              onFocus={handleTaskDurationFocus}
               onBlur={handleTaskDurationBlur}
             />
             <InputBlock.Unit>мин</InputBlock.Unit>
