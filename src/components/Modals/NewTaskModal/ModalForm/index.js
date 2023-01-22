@@ -145,7 +145,7 @@ const ModalForm = props => {
               x
               {pomodorosForDuration < 10
                 ? pomodorosForDuration
-                : Math.floor(pomodoroDuration)}
+                : Math.floor(pomodorosForDuration)}
             </InputBlock.Factor>
             <InputBlock.Input
               type="text"

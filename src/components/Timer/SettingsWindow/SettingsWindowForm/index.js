@@ -31,8 +31,6 @@ const SettingsWindowForm = () => {
   const [notification, setNotification] = useState(null)
   const [timeoutId, setTimeoutId] = useState(null)
 
-  console.log(focusedInputId)
-
   useEffect(() => {
     setPomodoroDuration(settingsState.timeSegmentsDuration.pomodoro)
     setShortBreakDuration(settingsState.timeSegmentsDuration.shortBreak)
@@ -65,7 +63,6 @@ const SettingsWindowForm = () => {
   }
 
   const handleChangeFocusedInput = id => {
-    console.log(id)
     switch (id) {
       case 'settings-input-1':
         setFocusedInputId('settings-input-2')

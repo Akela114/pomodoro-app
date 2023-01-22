@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { secondsToHM } from '../../../helpers/formatSeconds'
-
+import { secondsToHMS } from '../../../helpers/formatSeconds'
 import { Wrapper, Header, Body } from './FirstTask.styled'
+import { tasksSliceActions } from '../../../store/slices/tasks'
+
 import editIcon from '../../../assets/icons/edit/edit-white.svg'
 import exitIcon from '../../../assets/icons/exit/exit-white.svg'
 import clockIcon from '../../../assets/icons/clock.svg'
@@ -14,6 +15,7 @@ import tomatoFullBWIcon from '../../../assets/icons/tomato/tomato-full-bw.svg'
 import tomatoHalfIcon from '../../../assets/icons/tomato/tomato-half.svg'
 
 const FirstTask = props => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const pomodoroDuration = useSelector(
@@ -24,7 +26,11 @@ const FirstTask = props => {
     navigate(`/edit-task/${props.task.id}`)
   }
 
-  const { hours, minutes } = secondsToHM(props.task.remainingTime)
+  const handleRemoveTask = () => {
+    dispatch(tasksSliceActions.removeTask(props.task.id))
+  }
+
+  const { hours, minutes, seconds } = secondsToHMS(props.task.remainingTime)
 
   const pomodorosPassed = Math.trunc(
     (props.task.totalTime - props.task.remainingTime) / pomodoroDuration
@@ -92,21 +98,27 @@ const FirstTask = props => {
             bgIcon={editIcon}
             onClick={handleShowEditTaskModal}
           ></Header.Action>
-          <Header.Action bgIcon={exitIcon}></Header.Action>
+          <Header.Action
+            bgIcon={exitIcon}
+            onClick={handleRemoveTask}
+          ></Header.Action>
         </Header.ActionsGroup>
       </Header>
       <Body>
         <Body.RemainingTime>
           <Body.TimeImage src={clockIcon} alt="Clock Icon" />
           <Body.TimeValue>
-            осталось {hours}:{minutes}
+            осталось {hours}:{minutes}:{seconds}
           </Body.TimeValue>
         </Body.RemainingTime>
         <Body.ElementsGroup>
           <Body.PomodorosRemaining>
             {remainingPomodorosArray || remainingPomodorosShort}
           </Body.PomodorosRemaining>
-          <Body.Button bgIcon={checkIcon}></Body.Button>
+          <Body.Button
+            bgIcon={checkIcon}
+            onClick={handleRemoveTask}
+          ></Body.Button>
         </Body.ElementsGroup>
       </Body>
     </Wrapper>

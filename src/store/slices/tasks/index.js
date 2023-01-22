@@ -22,6 +22,12 @@ const tasksSlice = createSlice({
         taskToChange.remainingTime = duration * 60
       }
     },
+    removeTask(state, { payload: id }) {
+      return state.filter(task => task.id !== id)
+    },
+    decrementFirstTaskRemainingTime(state) {
+      state[0].remainingTime--
+    },
   },
 })
 
