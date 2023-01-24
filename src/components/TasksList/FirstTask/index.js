@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { secondsToHMS } from '../../../helpers/formatSeconds'
 import { Wrapper, Header, Body } from './FirstTask.styled'
-import { tasksSliceActions } from '../../../store/slices/tasks'
 
 import editIcon from '../../../assets/icons/edit/edit-white.svg'
 import exitIcon from '../../../assets/icons/exit/exit-white.svg'
@@ -15,20 +14,9 @@ import tomatoFullBWIcon from '../../../assets/icons/tomato/tomato-full-bw.svg'
 import tomatoHalfIcon from '../../../assets/icons/tomato/tomato-half.svg'
 
 const FirstTask = props => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-
   const pomodoroDuration = useSelector(
     state => state.timer.settings.timeSegmentsDuration.pomodoro * 60
   )
-
-  const handleShowEditTaskModal = () => {
-    navigate(`/edit-task/${props.task.id}`)
-  }
-
-  const handleRemoveTask = () => {
-    dispatch(tasksSliceActions.removeTask(props.task.id))
-  }
 
   const { hours, minutes, seconds } = secondsToHMS(props.task.remainingTime)
 
@@ -96,11 +84,11 @@ const FirstTask = props => {
         <Header.ActionsGroup>
           <Header.Action
             bgIcon={editIcon}
-            onClick={handleShowEditTaskModal}
+            onClick={props.onShowEditTaskModal}
           ></Header.Action>
           <Header.Action
             bgIcon={exitIcon}
-            onClick={handleRemoveTask}
+            onClick={props.onRemoveTask}
           ></Header.Action>
         </Header.ActionsGroup>
       </Header>
@@ -117,7 +105,7 @@ const FirstTask = props => {
           </Body.PomodorosRemaining>
           <Body.Button
             bgIcon={checkIcon}
-            onClick={handleRemoveTask}
+            onClick={props.onCompleteTask}
           ></Body.Button>
         </Body.ElementsGroup>
       </Body>

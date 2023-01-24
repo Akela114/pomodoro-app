@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { useEffect, useState } from 'react'
 import Transition from 'react-transition-group/Transition'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -17,11 +17,25 @@ import { timerSliceActions } from '../../../store/slices/timer'
 
 import settingsIcon from '../../../assets/icons/settings.svg'
 import tomatoFullIcon from '../../../assets/icons/tomato/tomato-full.svg'
+import notificationSoundEffect from '../../../assets/audio/effects/notification.wav'
+
+const notificationAudio = new Audio(notificationSoundEffect)
+notificationAudio.volume = 0.05
 
 const TimerWindow = props => {
   const dispatch = useDispatch()
 
   const timerState = useSelector(state => state.timer)
+
+  useEffect(() => {
+    return () => {
+      if (timerState.currentEvent.remainingTime > 1) return
+
+      notificationAudio.pause()
+      notificationAudio.currentTime = 0
+      notificationAudio.play()
+    }
+  }, [timerState])
 
   const handleTimerStart = () => {
     dispatch(startTimer())

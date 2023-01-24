@@ -5,6 +5,8 @@ import Wrapper from './Timer.styled'
 import TimerWindow from './TimerWindow'
 import SettingsWindow from './SettingsWindow'
 
+const animationTime = 500
+
 const Timer = () => {
   const windowSize = useWindowSize()
 
@@ -14,8 +16,6 @@ const Timer = () => {
   const handleToggleDisplayedWindow = () => {
     setSettingsWindowIsDisplayed(state => !state)
   }
-
-  const animationTime = 500
 
   return (
     <Wrapper>

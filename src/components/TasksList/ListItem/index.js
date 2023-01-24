@@ -29,6 +29,14 @@ const ListItem = props => {
     preview(getEmptyImage())
   }, [])
 
+  useEffect(() => {
+    return () => {
+      if (props.task.remainingTime > 1) return
+
+      props.onPlayAchievementAudio()
+    }
+  }, [props])
+
   const [{ isDragging }, drag, preview] = useDrag(
     () => ({
       type: dragItemTypes.TASK,
@@ -74,11 +82,23 @@ const ListItem = props => {
     dispatch(tasksSliceActions.removeTask(props.task.id))
   }
 
+  const handleCompleteTask = () => {
+    dispatch(tasksSliceActions.removeTask(props.task.id))
+    props.onPlayAchievementAudio()
+  }
+
   const { hours, minutes } = secondsToHM(props.task.remainingTime)
 
   return (
     <Wrapper ref={itemRef} task={props.task} isDragging={isDragging}>
-      {props.idx === 0 && <FirstTask task={props.task} />}
+      {props.idx === 0 && (
+        <FirstTask
+          task={props.task}
+          onShowEditTaskModal={handleShowEditTaskModal}
+          onRemoveTask={handleRemoveTask}
+          onCompleteTask={handleCompleteTask}
+        />
+      )}
       {props.idx !== 0 && (
         <Item>
           <Title>
