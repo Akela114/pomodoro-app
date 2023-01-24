@@ -88,7 +88,7 @@ const SettingsWindowForm = () => {
           </SettingsBlock.Header>
           <SettingsBlock.Body>
             <SettingsItem
-              name="Pomodoro"
+              name="Помидорка"
               labelText="мин"
               inputId="settings-input-1"
               isFocused={focusedInputId === 'settings-input-1'}
@@ -126,7 +126,7 @@ const SettingsWindowForm = () => {
           <SettingsBlock.Header>Другое</SettingsBlock.Header>
           <SettingsBlock.Body>
             <SettingsItem
-              name="Pomodoro-в до длинного перерыва"
+              name="Помидорок до длинного перерыва"
               labelIcon={tomatoFullIcon}
               inputId="settings-input-4"
               isFocused={focusedInputId === 'settings-input-4'}

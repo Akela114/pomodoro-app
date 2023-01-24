@@ -1,6 +1,24 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.li`
+  ${props =>
+    props.isDragging
+      ? `outline: 2px dashed ${props.theme.colors.tertiary.dark};`
+      : ''}
+  ${props => (props.isDragging ? 'opacity: 0.3;' : '')}
+
+  border-radius: 20px;
+
+  cursor: grab;
+
+  transition: transform 0.25s ease-out;
+
+  &:hover {
+    ${props => (!props.isDragging ? 'transform: scale(1.02);' : '')}
+  }
+`
+
+export const Item = styled.div`
   padding: 8px 32px;
 
   display: flex;
@@ -13,17 +31,16 @@ export const Wrapper = styled.li`
   background-color: ${props => props.theme.colors.white};
 
   box-shadow: ${props => props.theme.shadows.medium};
-
-  transition: transform 0.25s ease-out;
-
-  &:hover {
-    transform: scale(1.02);
-  }
 `
 
 export const Title = styled.h2`
   font-size: 15px;
   font-weight: 400;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
   @media (max-width: 1399px) {
     font-size: 14px;

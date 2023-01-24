@@ -28,6 +28,14 @@ const tasksSlice = createSlice({
     decrementFirstTaskRemainingTime(state) {
       state[0].remainingTime--
     },
+    moveTask(state, { payload: { dragId, hoverId } }) {
+      const dragIdx = state.findIndex(task => task.id === dragId)
+      const hoverIdx = state.findIndex(task => task.id === hoverId)
+
+      state.splice(hoverIdx, 0, state.splice(dragIdx, 1)[0])
+
+      return state
+    },
   },
 })
 
