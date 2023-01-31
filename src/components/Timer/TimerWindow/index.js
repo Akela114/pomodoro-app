@@ -11,7 +11,7 @@ import {
   Stats,
   StatsItem,
 } from './TimerWindow.styled'
-import { secondsToMS } from '../../../helpers/formatSeconds'
+import { formatSeconds } from '../../../helpers'
 import { startTimer } from '../../../store/slices/timer/timerThunks'
 import { timerSliceActions } from '../../../store/slices/timer'
 
@@ -20,7 +20,7 @@ import tomatoFullIcon from '../../../assets/icons/tomato/tomato-full.svg'
 import notificationSoundEffect from '../../../assets/audio/effects/notification.wav'
 
 const notificationAudio = new Audio(notificationSoundEffect)
-notificationAudio.volume = 0.05
+notificationAudio.volume = 0.1
 
 const TimerWindow = props => {
   const dispatch = useDispatch()
@@ -55,7 +55,9 @@ const TimerWindow = props => {
       : timerState.currentEvent.type === 'shortBreak'
       ? 'короткий перерыв'
       : 'длинный перерыв'
-  const eventRemainingTime = secondsToMS(timerState.currentEvent.remainingTime)
+  const eventRemainingTime = formatSeconds.secondsToMS(
+    timerState.currentEvent.remainingTime
+  )
 
   return (
     <Transition

@@ -17,7 +17,7 @@ import plusIcon from '../../assets/icons/plus.svg'
 import achievementSoundEffect from '../../assets/audio/effects/achievement.wav'
 
 const achievementAudio = new Audio(achievementSoundEffect)
-achievementAudio.volume = 0.05
+achievementAudio.volume = 0.1
 
 const TasksInfo = () => {
   const navigate = useNavigate()

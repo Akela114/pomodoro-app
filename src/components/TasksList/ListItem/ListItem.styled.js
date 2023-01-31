@@ -14,7 +14,7 @@ export const Wrapper = styled.li`
   transition: transform 0.25s ease-out;
 
   &:hover {
-    ${props => (!props.isDragging ? 'transform: scale(1.02);' : '')}
+    ${props => (!props.isDragging ? 'transform: scaleX(1.02);' : '')}
   }
 `
 

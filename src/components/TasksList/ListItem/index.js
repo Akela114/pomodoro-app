@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useDrag, useDrop } from 'react-dnd'
 import { getEmptyImage } from 'react-dnd-html5-backend'
 
-import { secondsToHM } from '../../../helpers/formatSeconds'
+import { formatSeconds } from '../../../helpers'
 import {
   Wrapper,
   Item,
@@ -87,7 +87,7 @@ const ListItem = props => {
     props.onPlayAchievementAudio()
   }
 
-  const { hours, minutes } = secondsToHM(props.task.remainingTime)
+  const { hours, minutes } = formatSeconds.secondsToHM(props.task.remainingTime)
 
   return (
     <Wrapper ref={itemRef} task={props.task} isDragging={isDragging}>

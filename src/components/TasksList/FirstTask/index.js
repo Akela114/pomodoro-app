@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-import { secondsToHMS } from '../../../helpers/formatSeconds'
+import { formatSeconds } from '../../../helpers'
 import { Wrapper, Header, Body } from './FirstTask.styled'
 
 import editIcon from '../../../assets/icons/edit/edit-white.svg'
@@ -18,7 +17,9 @@ const FirstTask = props => {
     state => state.timer.settings.timeSegmentsDuration.pomodoro * 60
   )
 
-  const { hours, minutes, seconds } = secondsToHMS(props.task.remainingTime)
+  const { hours, minutes, seconds } = formatSeconds.secondsToHMS(
+    props.task.remainingTime
+  )
 
   const pomodorosPassed = Math.trunc(
     (props.task.totalTime - props.task.remainingTime) / pomodoroDuration

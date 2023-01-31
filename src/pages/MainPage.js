@@ -4,13 +4,16 @@ import { Outlet } from 'react-router-dom'
 import Layout from '../components/Layout'
 import Timer from '../components/Timer'
 import TasksInfo from '../components/TasksList'
+import { Main } from './MainPage.styled'
 
 const MainPage = () => {
   return (
     <Layout>
-      <Outlet />
-      <TasksInfo />
-      <Timer />
+      <Main>
+        <Outlet />
+        <TasksInfo />
+        <Timer />
+      </Main>
     </Layout>
   )
 }
