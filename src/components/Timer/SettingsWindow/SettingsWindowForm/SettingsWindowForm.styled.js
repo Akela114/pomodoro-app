@@ -74,11 +74,19 @@ SettingsBlock.Body = styled.div`
 `
 
 export const Actions = styled.div`
+  margin-top: 50px;
+
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1124px) {
+    flex-direction: column;
+  }
 `
 
 Actions.Notification = styled.div`
+  position: absolute;
+
   font-size: 14px;
   font-weight: 400;
 
@@ -95,34 +103,58 @@ Actions.Notification = styled.div`
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 
-  ${props =>
-    props.state === 'entering'
-      ? css`
-          animation: ${notificationSlideInAnimation} ${props.timeout}ms ease-out
-            forwards;
-        `
-      : ''}
-
-  ${props =>
-    props.state === 'exiting'
-      ? css`
-          animation: ${notificationSlideOutAnimation} ${props.timeout}ms
-            ease-out forwards;
-        `
-      : ''}
-
   align-self: flex-end;
   white-space: nowrap;
   text-overflow: ellipsis;
 
+  @media (min-width: 1125px) {
+    transform: translateX(-100%);
+
+    ${props =>
+      props.state === 'entering'
+        ? css`
+            animation: ${notificationSlideInAnimation} ${props.timeout}ms
+              ease-out forwards;
+          `
+        : ''}
+
+    ${props =>
+      props.state === 'exiting'
+        ? css`
+            animation: ${notificationSlideOutAnimation} ${props.timeout}ms
+              ease-out forwards;
+          `
+        : ''}
+  }
+
   @media (max-width: 1124px) {
-    display: none;
+    width: 100%;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    text-align: center;
+    transform: translateY(-100%);
+
+    ${props =>
+      props.state === 'entering'
+        ? css`
+            animation: ${notificationVerticalSlideInAnimation}
+              ${props.timeout}ms ease-out forwards;
+          `
+        : ''}
+
+    ${props =>
+      props.state === 'exiting'
+        ? css`
+            animation: ${notificationVerticalSlideOutAnimation}
+              ${props.timeout}ms ease-out forwards;
+          `
+        : ''}
   }
 `
 
 Actions.Button = styled(ButtonWithText)`
-  margin-top: 20px;
-
   @media (min-width: 580px) {
     ${props =>
       props.state === 'entering' || props.state === 'entered'
@@ -142,7 +174,7 @@ Actions.Button = styled(ButtonWithText)`
 
 const notificationSlideOutAnimation = keyframes`
   0% {
-    transform: translateX(0);
+    transform: translateX(-100%);
     opacity: 1;
   }
   50% {
@@ -150,21 +182,48 @@ const notificationSlideOutAnimation = keyframes`
   }
   100% {
     opacity: 0;
-    transform: translateX(100%);
-    
+    transform: translateX(0%);
   }
 `
 
 const notificationSlideInAnimation = keyframes`
   0% {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   50% {
     opacity: 0;
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(-100%);
+  }
+`
+
+const notificationVerticalSlideOutAnimation = keyframes`
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+`
+
+const notificationVerticalSlideInAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-100%);
   }
 `
