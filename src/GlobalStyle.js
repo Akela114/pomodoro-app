@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
     line-height: 130%;
     user-select: none
   }
+
+  html {
+    font-size: 16px;
+  }
   
   body {
     font-family: 'Montserrat', sans-serif;

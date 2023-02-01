@@ -19,31 +19,31 @@ export const Wrapper = styled.div`
 `
 
 export const Header = styled.header`
-  padding: 20px 40px;
-  padding-right: 32px;
+  padding: 1.25rem 2.5rem;
+  padding-right: 2rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 
   @media (max-width: 509px) {
     flex-direction: column;
   }
 
   @media (max-width: 399px) {
-    padding: 10px 16px;
+    padding: 0.62rem 1rem;
   }
 `
 
 Header.Logo = styled.img`
-  height: 30px;
+  height: 1.87rem;
 `
 
 Header.Nav = styled.nav`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 
   @media (max-width: 509px) {
     align-self: stretch;
@@ -56,16 +56,16 @@ Header.Nav = styled.nav`
 `
 
 Header.NavLink = styled(Link)`
-  padding: 8px 20px;
+  padding: 0.5rem 1.25rem;
 
-  font-size: 15px;
+  font-size: 0.93rem;
   font-weight: 500;
   color: ${props => props.theme.colors.tertiary.dark};
   text-decoration: none;
   text-align: center;
 
   background-color: ${props => props.theme.colors.white};
-  border-radius: 100px;
+  border-radius: 6.25rem;
 
   box-shadow: ${props => props.theme.shadows.small};
 
@@ -77,7 +77,7 @@ Header.NavLink = styled(Link)`
   }
 
   @media (max-width: 1124px) {
-    font-size: 14px;
+    font-size: 0.87rem;
   }
 
   @media (max-width: 509px) {

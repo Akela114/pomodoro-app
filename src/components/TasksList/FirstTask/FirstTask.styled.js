@@ -4,39 +4,39 @@ import styled from 'styled-components'
 import TextLessButton from '../../UI/Button/TextLess'
 
 export const Wrapper = styled.div`
-  border-radius: 20px;
+  border-radius: 1.25rem;
   overflow: hidden;
 
   box-shadow: ${props => props.theme.shadows.medium};
 `
 
 export const Header = styled.header`
-  padding: 12px 32px;
+  padding: 0.75rem 2rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 
   background-color: ${props => props.theme.colors.tertiary.middle};
   color: ${props => props.theme.colors.white};
 `
 
 Header.Title = styled.h2`
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
 
   text-overflow: ellipsis;
 
   @media (max-width: 1399px) {
-    font-size: 15px;
+    font-size: 0.93rem;
   }
 `
 
 Header.ActionsGroup = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.62rem;
 
   @media (max-width: 399px) {
     flex-direction: column-reverse;
@@ -44,8 +44,8 @@ Header.ActionsGroup = styled.div`
 `
 
 Header.Action = styled.button`
-  width: 21px;
-  height: 21px;
+  width: 1.31rem;
+  height: 1.31rem;
 
   background-color: transparent;
   border: 0;
@@ -57,17 +57,17 @@ Header.Action = styled.button`
       ? `background-image: url(${props.bgIcon});
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 21px 21px;`
+      background-size: 1.31rem 1.31rem;`
       : ''};
 `
 
 export const Body = styled.div`
-  padding: 20px 32px;
+  padding: 1.25rem 2rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 
   @media (max-width: 329px) {
     display: none;
@@ -77,50 +77,50 @@ export const Body = styled.div`
 Body.RemainingTime = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 `
 
 Body.TimeImage = styled.img`
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
 
   @media (max-width: 1399px) {
-    width: 26px;
-    height: 26px;
+    width: 1.61rem;
+    height: 1.61rem;
   }
 `
 
 Body.TimeValue = styled.span`
-  font-size: 15px;
+  font-size: 0.93rem;
   font-weight: 400;
   color: ${props => props.theme.colors.primary.dark};
 
   @media (max-width: 1399px) {
-    font-size: 14px;
+    font-size: 0.87rem;
   }
 `
 
 Body.ElementsGroup = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 `
 
 Body.PomodorosRemaining = styled.ul`
-  padding: 10px 20px;
+  padding: 0.62rem 1.25rem;
 
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 
   border: 1px solid ${props => props.theme.colors.tertiary.middle};
-  border-radius: 100px;
+  border-radius: 6.25rem;
 
   list-style: none;
 
   @media (max-width: 1399px) {
-    padding: 8px 16px;
-    gap: 6px;
+    padding: 0.5rem 1rem;
+    gap: 0.37rem;
   }
 
   @media (max-width: 699px) {
@@ -132,32 +132,32 @@ const PomodoroItem = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
 `
 
 const PomodoroImage = styled.img`
-  width: 22px;
-  height: 22px;
+  width: 1.37rem;
+  height: 1.37rem;
 
   @media (max-width: 1399px) {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 `
 
 const PomodoroText = styled.span`
   margin-left: 2px;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 
-  font-size: 14px;
+  font-size: 0.87rem;
   color: ${props =>
     props.color === 'primary'
       ? props.theme.colors.primary.middle
       : props.theme.colors.secondary.middle};
 
   @media (max-width: 1399px) {
-    margin-right: 6px;
-    font-size: 13px;
+    margin-right: 0.37rem;
+    font-size: 0.81rem;
   }
 `
 
@@ -173,15 +173,15 @@ Body.PomodorosRemainingItem = props => {
 }
 
 Body.Button = styled(TextLessButton)`
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
 
   ${props =>
     props.bgIcon
       ? `background-image: url(${props.bgIcon});
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 17px 17px;`
+      background-size: 1.06rem 1.06rem;`
       : ''};
 
   background-color: ${props => props.theme.colors.tertiary.middle};
@@ -191,7 +191,7 @@ Body.Button = styled(TextLessButton)`
   }
 
   @media (max-width: 1399px) {
-    width: 30px;
-    height: 30px;
+    width: 1.87rem;
+    height: 1.87rem;
   }
 `

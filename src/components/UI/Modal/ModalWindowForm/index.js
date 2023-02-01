@@ -5,7 +5,7 @@ import ButtonWithText from '../../../UI/Button/WithText'
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.5rem;
 `
 
 export const Controls = styled.div`
@@ -13,29 +13,29 @@ export const Controls = styled.div`
 
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 2rem;
 
   @media (max-width: 530px) {
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
+    gap: 0.75rem;
   }
 `
 
 Controls.WarningMessage = styled.div`
-  padding: 0 12px;
+  padding: 0 0.75rem;
 
-  font-size: 13px;
+  font-size: 0.81rem;
   font-weight: 500;
   color: ${props => props.theme.colors.secondary.dark};
 
   position: absolute;
-  top: -22px;
-  left: 12px;
+  top: -1.37rem;
+  left: 0.75rem;
   z-index: 1;
 
   @media (max-width: 530px) {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   @media (max-width: 410px) {
@@ -49,17 +49,17 @@ Controls.TitleControl = styled.input`
 
   flex: 1;
 
-  padding: 8px 24px;
+  padding: 0.5rem 1.5rem;
 
   font-family: inherit;
-  font-size: 14px;
+  font-size: 0.87rem;
   font-weight: 400;
   color: ${props => props.theme.colors.primary.dark};
 
   background-color: ${props => props.theme.colors.white};
 
   border: 0;
-  border-radius: 100px;
+  border-radius: 6.25rem;
 
   box-shadow: ${props => props.theme.shadows.small};
 
@@ -76,7 +76,7 @@ Controls.TitleControl = styled.input`
   }
 
   @media (max-width: 530px) {
-    font-size: 13px;
+    font-size: 0.81rem;
   }
 `
 
@@ -84,18 +84,18 @@ Controls.DurationControlWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 9px;
+  gap: 0.56rem;
 
-  padding: 8px 24px;
+  padding: 0.5rem 1.5rem;
 
   font-family: inherit;
-  font-size: 14px;
+  font-size: 0.87rem;
   font-weight: 400;
 
   background-color: ${props => props.theme.colors.white};
 
   border: 0;
-  border-radius: 100px;
+  border-radius: 6.25rem;
 
   box-shadow: ${props => props.theme.shadows.small};
 
@@ -104,7 +104,7 @@ Controls.DurationControlWrapper = styled.div`
   }
 
   @media (max-width: 530px) {
-    font-size: 13px;
+    font-size: 0.81rem;
   }
 `
 
@@ -116,19 +116,19 @@ export const InputBlock = styled.label`
 `
 
 InputBlock.Icon = styled.img`
-  width: 18px;
-  height: 18px;
+  width: 1.12rem;
+  height: 1.12rem;
 `
 
 InputBlock.Factor = styled.span`
-  width: 36px;
+  width: 2.25rem;
 
   text-align: center;
   color: ${props => props.theme.colors.primary.middle};
 `
 
 InputBlock.Input = styled.input`
-  width: 26px;
+  width: 1.61rem;
 
   font-family: inherit;
   font-size: inherit;
@@ -143,7 +143,7 @@ InputBlock.Input = styled.input`
 `
 
 InputBlock.Unit = styled.span`
-  width: 36px;
+  width: 2.25rem;
 
   text-align: center;
   color: ${props => props.theme.colors.primary.middle};
@@ -153,14 +153,14 @@ export const InputActions = styled.div`
   display: flex;
   flex-direction: column;
 
-  border-radius: 7px;
+  border-radius: 0.43rem;
 
   overflow: hidden;
 `
 
 InputActions.Button = styled.button`
-  width: 12px;
-  height: 9px;
+  width: 0.75rem;
+  height: 0.56rem;
 
   border: 0;
 
@@ -171,7 +171,7 @@ InputActions.Button = styled.button`
       ? `background-image: url(${props.bgIcon});
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 12px 12px;`
+      background-size: 0.75rem 0.75rem;`
       : ''};
 
   &:active {
@@ -183,7 +183,7 @@ export const Action = styled(ButtonWithText)`
   background-color: ${props => props.theme.colors.tertiary.middle};
 
   font-family: inherit;
-  font-size: 15px;
+  font-size: 0.93rem;
   font-weight: 500;
 
   color: ${props => props.theme.colors.white};
@@ -193,6 +193,6 @@ export const Action = styled(ButtonWithText)`
   }
 
   @media (max-width: 530px) {
-    font-size: 14px;
+    font-size: 0.87rem;
   }
 `

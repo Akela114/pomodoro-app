@@ -12,47 +12,47 @@ export const Wrapper = styled.div`
 `
 
 export const Modal = styled.div`
-  width: 700px;
+  width: 43.75rem;
 
-  margin: 270px auto;
+  margin: 16.87rem auto;
 
   background-color: ${props => props.theme.colors.white};
-  border-radius: 12px;
+  border-radius: 0.75rem;
   overflow: hidden;
 
   box-shadow: ${props => props.theme.shadows.large};
 
-  @media (max-width: 700px) {
+  @media (max-width: 43.75rem) {
     width: 100%;
     border-radius: 0;
   }
 `
 
 Modal.Header = styled.div`
-  padding: 10px 32px;
+  padding: 0.62rem 2rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 0.62rem;
 
   background: ${props => props.theme.colors.tertiary.gradient};
 `
 
 Modal.Title = styled.h2`
-  font-size: 22px;
+  font-size: 1.37rem;
   font-weight: 600;
 
   color: ${props => props.theme.colors.white};
 
   @media (max-width: 530px) {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 `
 
 Modal.ExitButton = styled.button`
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   border: 0;
 
   cursor: pointer;
@@ -64,26 +64,26 @@ Modal.ExitButton = styled.button`
       ? `background-image: url(${props.bgIcon});
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 28px 28px;`
+    background-size: 1.75rem 1.75rem;`
       : ''};
 
   @media (max-width: 1399px) {
-    width: 27px;
-    height: 27px;
-    background-size: 27px 27px;
+    width: 1.68rem;
+    height: 1.68rem;
+    background-size: 1.68rem 1.68rem;
   }
 
   @media (max-width: 530px) {
-    width: 25px;
-    height: 25px;
-    background-size: 25px 25px;
+    width: 1.56rem;
+    height: 1.56rem;
+    background-size: 1.56rem 1.56rem;
   }
 `
 
 Modal.Body = styled.div`
-  padding: 40px 32px;
+  padding: 2.5rem 2rem;
 
   @media (max-width: 410px) {
-    padding: 32px;
+    padding: 2rem;
   }
 `

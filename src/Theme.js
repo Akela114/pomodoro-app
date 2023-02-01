@@ -32,9 +32,9 @@ const theme = {
     tertiary: colors.blue,
   },
   shadows: {
-    large: '0px 8px 32px rgba(0, 0, 0, 0.08)',
-    medium: '0px 6px 22px rgba(0, 0, 0, 0.08)',
-    small: '0px 4px 12px rgba(0, 0, 0, 0.08)',
+    large: '0px 0.5rem 2rem rgba(0, 0, 0, 0.08)',
+    medium: '0px 0.37rem 1.37rem rgba(0, 0, 0, 0.08)',
+    small: '0px 0.25rem 0.75rem rgba(0, 0, 0, 0.08)',
   },
 }
 

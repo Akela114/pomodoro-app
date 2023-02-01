@@ -5,7 +5,7 @@ import CardDefault from '../UI/Card'
 const Wrapper = styled(CardDefault)`
   padding: 0;
 
-  width: 550px;
+  width: 34.37rem;
   flex-direction: row;
 
   overflow: hidden;

@@ -4,7 +4,7 @@ export const Item = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 
   @media (max-width: 349px) {
     flex-direction: column;
@@ -12,27 +12,27 @@ export const Item = styled.div`
 `
 
 Item.Name = styled.span`
-  font-size: 14px;
+  font-size: 0.87rem;
   font-weight: 400;
 
   color: ${props => props.theme.colors.primary.dark};
 
   @media (max-width: 1399px) {
-    font-size: 13px;
+    font-size: 0.81rem;
   }
 `
 
 export const ItemControl = styled.div`
-  padding: 8px 20px;
+  padding: 0.5rem 1.25rem;
 
-  min-width: 130px;
+  min-width: 8.12rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 0.62rem;
 
-  border-radius: 100px;
+  border-radius: 6.25rem;
   box-shadow: ${props => props.theme.shadows.small};
 
   &:has(input:focus) {
@@ -45,24 +45,24 @@ ItemControl.Label = styled.label`
 
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
 
-  font-size: 14px;
+  font-size: 0.87rem;
   font-weight: 400;
 
   color: ${props => props.theme.colors.primary.middle};
 
   @media (max-width: 1399px) {
-    font-size: 13px;
+    font-size: 0.81rem;
   }
 `
 
 ItemControl.Input = styled.input`
   font-family: inherit;
-  font-size: 14px;
+  font-size: 0.87rem;
   font-weight: 400;
 
-  width: 26px;
+  width: 1.61rem;
 
   border: 0;
   outline: 0;
@@ -72,21 +72,21 @@ ItemControl.Input = styled.input`
   color: ${props => props.theme.colors.primary.dark};
 
   @media (max-width: 1399px) {
-    font-size: 13px;
+    font-size: 0.81rem;
   }
 `
 
 ItemControl.LabelIcon = styled.img`
-  width: 18px;
-  height: 18px;
+  width: 1.12rem;
+  height: 1.12rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-width: 1399px) {
-    width: 17px;
-    height: 17px;
+    width: 1.06rem;
+    height: 1.06rem;
   }
 `
 
@@ -94,14 +94,14 @@ ItemControl.Actions = styled.div`
   display: flex;
   flex-direction: column;
 
-  border-radius: 7px;
+  border-radius: 0.43rem;
 
   overflow: hidden;
 `
 
 ItemControl.Action = styled.button`
-  width: 14px;
-  height: 11px;
+  width: 0.87rem;
+  height: 0.68rem;
 
   border: 0;
 
@@ -112,7 +112,7 @@ ItemControl.Action = styled.button`
       ? `background-image: url(${props.bgIcon});
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 12px 12px;`
+      background-size: 0.75rem 0.75rem;`
       : ''};
 
   &:active {

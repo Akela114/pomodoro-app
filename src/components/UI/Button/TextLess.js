@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 const TextLessButton = styled.button`
-  padding: 8px;
+  padding: 0.5rem;
 
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   border: 0;
-  border-radius: 100px;
+  border-radius: 6.25rem;
 
   cursor: pointer;
 
@@ -22,7 +22,7 @@ const TextLessButton = styled.button`
       ? `background-image: url(${props.bgIcon});
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 20px 20px;`
+      background-size: 1.25rem 1.25rem;`
       : ''};
 
   &:active {

@@ -6,7 +6,7 @@ import ButtonWithText from '../../../UI/Button/WithText'
 export const Form = styled.form`
   position: relative;
 
-  padding: 0 29px;
+  padding: 0 1.81rem;
 
   flex: 1;
 
@@ -26,10 +26,10 @@ export const SettingsGroup = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 1.87rem;
 
   @media (max-width: 1399px) {
-    gap: 20px;
+    gap: 1.25rem;
   }
 `
 
@@ -37,9 +37,9 @@ export const SettingsBlock = styled(CardDefault)`
   padding: 0;
   overflow: hidden;
 
-  border-radius: 20px;
+  border-radius: 1.25rem;
 
-  gap: 10px;
+  gap: 0.62rem;
 
   @media (max-width: 1124px) {
     border-radius: 0;
@@ -47,34 +47,34 @@ export const SettingsBlock = styled(CardDefault)`
 `
 
 SettingsBlock.Header = styled.header`
-  font-size: 15px;
+  font-size: 0.93rem;
   font-weight: 500;
 
-  padding: 12px 32px;
+  padding: 0.75rem 2rem;
 
   color: ${props => props.theme.colors.white};
   background-color: ${props => props.theme.colors.secondary.middle};
 
   @media (max-width: 1124px) {
-    padding: 12px 20px;
+    padding: 0.75rem 1.25rem;
   }
 `
 
 SettingsBlock.Body = styled.div`
-  padding: 30px 32px;
+  padding: 1.87rem 2rem;
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 
   @media (max-width: 1399px) {
-    padding: 20px 32px;
-    gap: 12px;
+    padding: 1.25rem 2rem;
+    gap: 0.75rem;
   }
 `
 
 export const Actions = styled.div`
-  margin-top: 50px;
+  margin-top: 3.11rem;
 
   display: flex;
   justify-content: space-between;
@@ -87,17 +87,17 @@ export const Actions = styled.div`
 Actions.Notification = styled.div`
   position: absolute;
 
-  font-size: 14px;
+  font-size: 0.87rem;
   font-weight: 400;
 
   flex: 1;
 
-  padding: 8px 30px;
+  padding: 0.5rem 1.87rem;
 
   color: ${props => props.theme.colors.primary.dark};
 
   border: 2px solid ${props => props.theme.colors.secondary.middle};
-  border-radius: 100px;
+  border-radius: 6.25rem;
 
   border-right: 0;
   border-top-right-radius: 0;

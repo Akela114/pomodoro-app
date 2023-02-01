@@ -10,10 +10,10 @@ export const Wrapper = styled(Card)`
 export const TasksGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 
   @media (max-width: 1399px) {
-    gap: 16px;
+    gap: 1rem;
   }
 `
 
@@ -22,10 +22,10 @@ export const TasksList = styled.ul`
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 
   @media (max-width: 1399px) {
-    gap: 16px;
+    gap: 1rem;
   }
 `
 
@@ -34,7 +34,7 @@ export const Button = styled(ButtonWithText)`
 `
 
 export const Message = styled.div`
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
   color: ${props => props.theme.colors.tertiary.dark};
   text-align: center;
@@ -46,10 +46,10 @@ export const Message = styled.div`
   align-items: center;
 
   @media (max-width: 1124px) {
-    font-size: 18px;
+    font-size: 1.12rem;
   }
 
   @media (max-width: 499px) {
-    font-size: 17px;
+    font-size: 1.06rem;
   }
 `

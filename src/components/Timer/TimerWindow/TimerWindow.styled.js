@@ -41,22 +41,22 @@ export const Card = styled(CardDefault)`
 export const Button = styled(TextLessButtonDefault)`
   align-self: flex-end;
 
-  margin-right: 29px;
+  margin-right: 1.81rem;
 
   @media (max-width: 1124px) {
-    width: 35px;
-    height: 35px;
+    width: 2.18rem;
+    height: 2.18rem;
 
     margin-right: 0;
     position: absolute;
-    border-radius: 0 0 0 20px;
+    border-radius: 0 0 0 1.25rem;
 
     ${props =>
       props.bgIcon
         ? `background-image: url(${props.bgIcon});
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 16px 16px;`
+      background-size: 1rem 1rem;`
         : ''};
   }
 `
@@ -64,17 +64,17 @@ export const Button = styled(TextLessButtonDefault)`
 export const TimerData = styled.div`
   flex: 1;
 
-  padding: 60px 0;
+  padding: 3.75rem 0;
 
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  gap: 30px;
+  gap: 1.87rem;
 
   @media (max-width: 1124px) {
-    padding: 20px 0 0;
-    gap: 8px;
+    padding: 1.25rem 0 0;
+    gap: 0.5rem;
   }
 `
 
@@ -84,13 +84,13 @@ export const MainInfo = styled.div`
 `
 
 MainInfo.Event = styled.div`
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
 
   color: ${props => props.theme.colors.secondary.middle};
 
   @media (max-width: 1124px) {
-    font-size: 18px;
+    font-size: 1.12rem;
   }
 `
 
@@ -98,14 +98,14 @@ MainInfo.Value = styled.div`
   display: flex;
   justify-content: center;
 
-  font-size: 100px;
+  font-size: 6.25rem;
   font-weight: 600;
-  gap: 8px;
+  gap: 0.5rem;
 
   color: ${props => props.theme.colors.secondary.middle};
 
   @media (max-width: 1124px) {
-    font-size: 60px;
+    font-size: 3.75rem;
   }
 `
 
@@ -121,7 +121,7 @@ MainInfo.Seconds = styled.span`
 
 export const Actions = styled.ul`
   width: 100%;
-  padding: 0 29px;
+  padding: 0 1.81rem;
 
   list-style: none;
 
@@ -132,12 +132,12 @@ export const Actions = styled.ul`
 `
 
 const ActionButton = styled.button`
-  padding: 8px 0;
+  padding: 0.5rem 0;
 
-  min-width: 150px;
+  min-width: 9.37rem;
   text-align: center;
 
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
 
   color: ${props => props.theme.colors.white};
@@ -152,7 +152,7 @@ const ActionButton = styled.button`
   }
 
   @media (max-width: 1124px) {
-    font-size: 18px;
+    font-size: 1.12rem;
   }
 `
 
@@ -165,13 +165,13 @@ Actions.Action = props => {
 }
 
 export const Stats = styled.ul`
-  margin: 0 29px;
+  margin: 0 1.81rem;
   align-self: stretch;
 
   display: flex;
 
   border: 2px solid ${props => props.theme.colors.secondary.middle};
-  border-radius: 20px;
+  border-radius: 1.25rem;
 
   @media (max-width: 1124px) {
     display: none;
@@ -179,7 +179,7 @@ export const Stats = styled.ul`
 `
 
 export const StatsItem = styled.li`
-  padding: 16px;
+  padding: 1rem;
 
   flex: 1;
 
@@ -187,12 +187,12 @@ export const StatsItem = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 0.62rem;
 
-  height: 158px;
+  height: 9.87rem;
 
   @media (max-width: 1399px) {
-    padding: 12px;
+    padding: 0.75rem;
   }
 `
 
@@ -200,32 +200,32 @@ StatsItem.Data = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 0.62rem;
 `
 
 StatsItem.Img = styled.img`
-  width: 26px;
-  height: 26px;
+  width: 1.61rem;
+  height: 1.61rem;
 
   @media (max-width: 1399px) {
-    width: 22px;
-    height: 22px;
+    width: 1.37rem;
+    height: 1.37rem;
   }
 `
 
 StatsItem.Value = styled.span`
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
 
   color: ${props => props.theme.colors.secondary.middle};
 
   @media (max-width: 1399px) {
-    font-size: 17px;
+    font-size: 1.06rem;
   }
 `
 
 StatsItem.Description = styled.div`
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
 
   color: ${props => props.theme.colors.secondary.middle};

@@ -5,17 +5,17 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 40px 29px;
+  padding: 2.5rem 1.81rem;
 
   background-color: ${props => props.theme.colors.white};
-  border-radius: 30px;
+  border-radius: 1.87rem;
 
   box-shadow: ${props => props.theme.shadows.large};
 
-  gap: 20px;
+  gap: 1.25rem;
 
   @media (max-width: 1124px) {
-    border-radius: 12px;
+    border-radius: 0.75rem;
   }
 `
 

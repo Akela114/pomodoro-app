@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 const ButtonWithText = styled.button`
-  padding: 8px 20px;
+  padding: 0.5rem 1.25rem;
 
   border: 0;
-  border-radius: 100px;
+  border-radius: 6.25rem;
 
   cursor: pointer;
 
@@ -29,17 +29,17 @@ const ButtonWithText = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 0.62rem;
 `
 
 ButtonWithText.Icon = styled.img`
-  width: 22px;
-  height: 22px;
+  width: 1.37rem;
+  height: 1.37rem;
 `
 
 ButtonWithText.Text = styled.span`
   font-family: inherit;
-  font-size: 15px;
+  font-size: 0.93rem;
   font-weight: 500;
   color: ${props => props.theme.colors.white};
 `

@@ -7,7 +7,7 @@ export const Wrapper = styled.li`
       : ''}
   ${props => (props.isDragging ? 'opacity: 0.3;' : '')}
 
-  border-radius: 20px;
+  border-radius: 1.25rem;
 
   cursor: grab;
 
@@ -19,14 +19,14 @@ export const Wrapper = styled.li`
 `
 
 export const Item = styled.div`
-  padding: 8px 32px;
+  padding: 0.5rem 2rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 0.62rem;
 
-  border-radius: 20px;
+  border-radius: 1.25rem;
 
   background-color: ${props => props.theme.colors.white};
 
@@ -34,16 +34,16 @@ export const Item = styled.div`
 `
 
 export const Title = styled.h2`
-  font-size: 15px;
+  font-size: 0.93rem;
   font-weight: 400;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 0.62rem;
 
   @media (max-width: 1399px) {
-    font-size: 14px;
+    font-size: 0.87rem;
   }
 
   @media (max-width: 399px) {
@@ -56,11 +56,11 @@ export const Title = styled.h2`
 export const RemainingTime = styled.span`
   flex: 1;
 
-  font-size: 13px;
+  font-size: 0.81rem;
   font-weight: 400;
 
   @media (max-width: 1399px) {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   @media (max-width: 499px) {
@@ -71,7 +71,7 @@ export const RemainingTime = styled.span`
 export const ActionsGroup = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.62rem;
 
   @media (max-width: 399px) {
     flex-direction: column-reverse;
@@ -79,8 +79,8 @@ export const ActionsGroup = styled.div`
 `
 
 ActionsGroup.Action = styled.button`
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 
   background-color: transparent;
   border: 0;
@@ -92,11 +92,11 @@ ActionsGroup.Action = styled.button`
       ? `background-image: url(${props.bgIcon});
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20px 20px;`
+    background-size: 1.25rem 1.25rem;`
       : ''};
 
   @media (max-width: 1399px) {
-    width: 18px;
-    height: 18px;
+    width: 1.12rem;
+    height: 1.12rem;
   }
 `

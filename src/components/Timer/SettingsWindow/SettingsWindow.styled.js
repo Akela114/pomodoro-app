@@ -9,7 +9,7 @@ export const Wrapper = styled(CardDefault)`
   padding-left: 0;
   padding-right: 0;
 
-  gap: 30px;
+  gap: 1.87rem;
 
   box-shadow: none;
   border-radius: 0;
@@ -51,7 +51,7 @@ export const Wrapper = styled(CardDefault)`
 `
 
 export const Header = styled.header`
-  padding: 12px 29px;
+  padding: 0.75rem 1.81rem;
 
   color: ${props => props.theme.colors.white};
   background-color: ${props => props.theme.colors.secondary.middle};
@@ -66,19 +66,19 @@ export const Header = styled.header`
 `
 
 Header.Title = styled.span`
-  font-size: 17px;
+  font-size: 1.06rem;
   font-weight: 600;
 
   @media (max-width: 1399px) {
-    font-size: 16px;
+    font-size: 1rem;
   }
 `
 
 Header.Button = styled.button`
-  padding: 0 8px;
+  padding: 0 0.5rem;
 
-  width: 32px;
-  height: 24px;
+  width: 2rem;
+  height: 1.5rem;
 
   background-color: transparent;
   border: 0;
@@ -90,11 +90,11 @@ Header.Button = styled.button`
       ? `background-image: url(${props.bgIcon});
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 26px 26px;`
+      background-size: 1.61rem 1.61rem;`
       : ''};
 
   @media (max-width: 1399px) {
-    ${props => (props.bgIcon ? 'background-size: 24px 24px;' : '')}
+    ${props => (props.bgIcon ? 'background-size: 1.5rem 1.5rem;' : '')}
   }
 
   @media (max-width: 1124px) {
@@ -135,14 +135,14 @@ const slideInAnimationVertical = keyframes`
   }
   100% {
     opacity: 1;
-    max-height: 500px;
+    max-height: 31.25rem;
   }
 `
 
 const slideOutAnimationVertical = keyframes`
   0% {
     opacity: 1;
-    max-height: 500px;
+    max-height: 31.25rem;
   }
   50% {
     opacity: 1;

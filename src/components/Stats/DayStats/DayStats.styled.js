@@ -3,43 +3,43 @@ import styled from 'styled-components'
 import Card from '../../UI/Card'
 
 export const Wrapper = styled(Card)`
-  padding: 40px 0;
+  padding: 2.5rem 0;
 
   @media (max-width: 799px) {
-    padding: 20px 0;
+    padding: 1.25rem 0;
   }
 `
 
 export const Date = styled.div`
-  padding: 6px;
+  padding: 0.37rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 
   background-color: ${props => props.theme.colors.secondary.middle};
 `
 
 Date.Value = styled.span`
-  width: 140px;
+  width: 8.75rem;
   text-align: center;
 
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
 
   color: ${props => props.theme.colors.white};
 
   @media (max-width: 799px) {
-    font-size: 17px;
+    font-size: 1.06rem;
   }
 `
 
 Date.Button = styled.button`
-  width: 26px;
-  height: 26px;
+  width: 1.61rem;
+  height: 1.61rem;
 
   border: 0;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background-color: ${props => props.theme.colors.secondary.middle};
 
   display: flex;
@@ -57,23 +57,23 @@ Date.Button = styled.button`
   }
 
   @media (max-width: 799px) {
-    width: 22px;
-    height: 22px;
+    width: 1.37rem;
+    height: 1.37rem;
   }
 `
 
 Date.ButtonImage = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
 
   @media (max-width: 799px) {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 `
 
 export const StatsList = styled.ul`
-  padding: 20px;
+  padding: 1.25rem;
 
   flex: 1;
 
@@ -83,7 +83,7 @@ export const StatsList = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  gap: 16px;
+  gap: 1rem;
 `
 
 export const StatsItem = styled.li`
@@ -94,32 +94,32 @@ export const StatsItem = styled.li`
 StatsItem.Name = styled.span`
   flex: 1;
 
-  padding: 0 0 4px 8px;
+  padding: 0 0 0.25rem 0.5rem;
 
-  font-size: 15px;
+  font-size: 0.93rem;
   font-weight: 500;
 
   border-bottom: 3px solid ${props => props.theme.colors.secondary.light};
-  border-bottom-left-radius: 12px;
+  border-bottom-left-radius: 0.75rem;
 
   color: ${props => props.theme.colors.primary.dark};
 
   @media (max-width: 799px) {
-    font-size: 13px;
+    font-size: 0.81rem;
   }
 `
 
 StatsItem.Value = styled.span`
-  width: 70px;
+  width: 4.37rem;
 
   padding-bottom: 2px;
 
   text-align: center;
 
-  font-size: 15px;
+  font-size: 0.93rem;
 
   border-bottom: 3px solid ${props => props.theme.colors.tertiary.light};
-  border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 0.37rem;
 
   color: ${props => props.theme.colors.primary.dark};
 
@@ -128,6 +128,6 @@ StatsItem.Value = styled.span`
   align-items: center;
 
   @media (max-width: 799px) {
-    font-size: 13px;
+    font-size: 0.81rem;
   }
 `
