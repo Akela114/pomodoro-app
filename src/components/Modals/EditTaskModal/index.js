@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -15,6 +15,12 @@ const EditTaskModal = () => {
   const taskToEdit = useSelector(state =>
     state.tasks.find(task => task.id === taskId)
   )
+
+  useEffect(() => {
+    if (!taskToEdit) navigate('/page-not-found')
+  }, [taskToEdit])
+
+  if (!taskToEdit) return
 
   const handleHideEditTaskModal = (e = null) => {
     if (!e || e.currentTarget === e.target) navigate('/')
