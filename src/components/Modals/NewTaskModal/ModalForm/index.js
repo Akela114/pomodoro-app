@@ -113,7 +113,7 @@ const ModalForm = props => {
       return
     }
 
-    props.onAddNewTask(taskTitle, +taskDuration)
+    props.onAddNewTask(taskTitle, +taskDuration || 1)
 
     setTaskTitle('')
     setTaskDuration('30')
