@@ -16,30 +16,37 @@ import { timerSliceReducer } from './slices/timer'
 import { tasksSliceReducer } from './slices/tasks'
 import { statisticsSliceReducer } from './slices/statistics'
 
+const timerTransform = createTransform(
+  inboundState => ({
+    settings: {
+      ...inboundState.settings,
+      timeSegmentsDuration: {
+        ...inboundState.settings.timeSegmentsDuration,
+      },
+    },
+    currentEvent: {
+      type: 'pomodoro',
+      isActive: false,
+      remainingTime: inboundState.settings.timeSegmentsDuration.pomodoro * 60,
+      isTriggered: false,
+    },
+    statistics: {
+      ...inboundState.statistics,
+      pomodorosFinishedToday: 0,
+    },
+  }),
+  null,
+  { whitelist: ['timer'] }
+)
+
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['timer'],
-}
-
-const timerTransform = createTransform(
-  inboundState => ({
-    ...inboundState,
-    pomodorosFinishedToday: 0,
-  }),
-  null,
-  { whitelist: ['statistics'] }
-)
-
-const timerPersistConfig = {
-  key: 'timer',
-  storage,
-  blacklist: ['currentEvent'],
   transforms: [timerTransform],
 }
 
 const combinedReducer = combineReducers({
-  timer: persistReducer(timerPersistConfig, timerSliceReducer),
+  timer: timerSliceReducer,
   tasks: tasksSliceReducer,
   statistics: statisticsSliceReducer,
 })
