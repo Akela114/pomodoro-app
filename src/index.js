@@ -3,10 +3,11 @@ import ReactDom from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 
 import GlobalStyle from './GlobalStyle'
 import Theme from './Theme'
-import store from './store'
+import store, { persistor } from './store'
 import App from './App'
 
 const root = ReactDom.createRoot(document.getElementById('root'))
@@ -21,11 +22,13 @@ root.render(
       />
     </Helmet>
     <Provider store={store}>
-      <BrowserRouter>
-        <Theme>
-          <App />
-        </Theme>
-      </BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <Theme>
+            <App />
+          </Theme>
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </Fragment>
 )

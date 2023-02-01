@@ -112,7 +112,9 @@ const TimerWindow = props => {
                     x{timerState.statistics.pomodorosFinishedToday}
                   </StatsItem.Value>
                 </StatsItem.Data>
-                <StatsItem.Description>завершено сегодня</StatsItem.Description>
+                <StatsItem.Description>
+                  завершено за сессию
+                </StatsItem.Description>
               </StatsItem>
               <StatsItem>
                 <StatsItem.Data>
