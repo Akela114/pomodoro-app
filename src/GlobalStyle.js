@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-size: 16px;
+    font-size: 15px;
   }
   
   body {
