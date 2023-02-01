@@ -5,15 +5,31 @@ import ButtonWithText from '../UI/Button/WithText'
 
 export const Wrapper = styled(Card)`
   flex: 1;
+
+  padding: 2.5rem 0;
 `
 
 export const TasksGroup = styled.div`
+  padding: 0 1.81rem 2.5rem;
+
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 
+  max-height: 48rem;
+  overflow-y: scroll;
+
   @media (max-width: 1399px) {
     gap: 1rem;
+  }
+
+  /* hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  /* hide scrollbar for chrome, safari and opera */
+  &::-webkit-scrollbar {
+    display: none;
   }
 `
 
@@ -30,6 +46,8 @@ export const TasksList = styled.ul`
 `
 
 export const Button = styled(ButtonWithText)`
+  margin: 0 2.5rem;
+
   align-self: flex-end;
 `
 
