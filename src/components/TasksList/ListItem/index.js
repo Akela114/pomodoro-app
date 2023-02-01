@@ -13,6 +13,7 @@ import {
   ActionsGroup,
 } from './ListItem.styled'
 import { tasksSliceActions } from '../../../store/slices/tasks'
+import { completeTask } from '../../../store/thunks'
 import { dragItemTypes } from '../../../constants'
 import FirstTask from '../FirstTask'
 
@@ -83,7 +84,7 @@ const ListItem = props => {
   }
 
   const handleCompleteTask = () => {
-    dispatch(tasksSliceActions.removeTask(props.task.id))
+    dispatch(completeTask(props.task.id))
     props.onPlayAchievementAudio()
   }
 

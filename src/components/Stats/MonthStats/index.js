@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 import chevronLeftBlueIcon from '../../../assets/icons/chevron-left/chevron-left-blue.svg'
 import chevronRightBlueIcon from '../../../assets/icons/chevron-right/chevron-right-blue.svg'
@@ -7,15 +8,16 @@ import chevronRightWhiteIcon from '../../../assets/icons/chevron-right/chevron-r
 import { Wrapper, Year, Month, StatsList, StatsItem } from './MonthStats.styled'
 import { formatSeconds, workWithDates } from '../../../helpers'
 
-import dummyStatistics from '../../../dummy_data/dummyStatistics'
-
 const MonthStats = props => {
+  const selectedMonthStatistics = useSelector(
+    store => store.statistics.data[props.date.year]?.[props.date.month] ?? {}
+  )
+
   const monthStringValue = workWithDates.monthNames[props.date.month]
 
-  const monthWorks =
-    dummyStatistics?.[props.date.year]?.[props.date.month] ?? {}
-
-  const { workingTime, tasksCompleted } = Object.values(monthWorks).reduce(
+  const { workingTime, tasksCompleted } = Object.values(
+    selectedMonthStatistics
+  ).reduce(
     (res, val) => ({
       workingTime: res.workingTime + val.workingTime,
       tasksCompleted: res.tasksCompleted + val.tasksCompleted,

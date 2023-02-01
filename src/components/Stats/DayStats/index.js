@@ -1,13 +1,19 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 import { Wrapper, Date, StatsList, StatsItem } from './DayStats.styled'
 import chevronLeftIcon from '../../../assets/icons/chevron-left/chevron-left-white.svg'
 import chevronRightIcon from '../../../assets/icons/chevron-right/chevron-right-white.svg'
 import { formatSeconds, workWithDates } from '../../../helpers'
 
-import dummyStatistics from '../../../dummy_data/dummyStatistics'
-
 const DayStats = props => {
+  const selectedDayStatistics = useSelector(
+    store =>
+      store.statistics.data[props.date.year]?.[props.date.month]?.[
+        props.date.day
+      ] ?? null
+  )
+
   const dateDiff = workWithDates.getDateDiffInDays(props.date)
 
   const dateStringValue =
@@ -18,13 +24,8 @@ const DayStats = props => {
       : `${workWithDates.monthNames[props.date.month]}, ${props.date.day}`
 
   const { hours: workingHours, minutes: workingMinutes } =
-    formatSeconds.secondsToHM(
-      dummyStatistics?.[props.date.year]?.[props.date.month]?.[props.date.day]
-        ?.workingTime ?? 0
-    )
-  const tasksCompleted =
-    dummyStatistics?.[props.date.year]?.[props.date.month]?.[props.date.day]
-      ?.tasksCompleted ?? 0
+    formatSeconds.secondsToHM(selectedDayStatistics?.workingTime ?? 0)
+  const tasksCompleted = selectedDayStatistics?.tasksCompleted ?? 0
 
   return (
     <Wrapper>

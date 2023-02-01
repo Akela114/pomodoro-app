@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { useSelector } from 'react-redux'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,12 +13,15 @@ import { Bar, getElementAtEvent } from 'react-chartjs-2'
 
 import options from './MonthChart.options'
 import { Wrapper, ChartContainer } from './MonthChart.styled'
-import dummyStatistics from '../../../dummy_data/dummyStatistics'
 import { formatSeconds, workWithDates } from '../../../helpers'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const MonthChart = props => {
+  const selectedMonthStatistics = useSelector(
+    store => store.statistics.data[props.date.year]?.[props.date.month] ?? {}
+  )
+
   const chartRef = useRef(null)
 
   const labels = []
@@ -31,9 +35,6 @@ const MonthChart = props => {
     labels.push(i + 1)
   }
 
-  const monthStatistics =
-    dummyStatistics?.[props.date.year]?.[props.date.month] ?? {}
-
   const data = {
     labels,
     datasets: [
@@ -41,7 +42,7 @@ const MonthChart = props => {
         label: 'Затраченное на работу время',
         data: labels.map(day => {
           const { hours, minutes } = formatSeconds.secondsToHM(
-            monthStatistics[day]?.workingTime || 0
+            selectedMonthStatistics[day]?.workingTime ?? 0
           )
           return Number.parseInt(hours) + Number.parseInt(minutes) / 60
         }),

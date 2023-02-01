@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import { useSelector } from 'react-redux'
 
 import { Main, TextStatsBlock } from './StatisticsPage.styled'
 import Layout from '../components/Layout'
@@ -6,7 +7,6 @@ import DayStats from '../components/Stats/DayStats'
 import MonthStats from '../components/Stats/MonthStats'
 import MonthChart from '../components/Stats/MonthChart'
 import { workWithDates } from '../helpers'
-import dummyStatistics from '../dummy_data/dummyStatistics'
 
 const dateReducer = (state, action) => {
   let { day, month, year } = state
@@ -123,12 +123,14 @@ const dateReducer = (state, action) => {
 }
 
 const StatisticsPage = () => {
+  const statisticsMeta = useSelector(store => store.statistics.meta)
+
   const [selectedDate, dispatchSelectedDate] = useReducer(
     dateReducer,
     (() => {
       const { year, month, day } = workWithDates.getCurrentDateAsObject()
 
-      const { minYear, minMonth, minDay } = dummyStatistics.meta
+      const { minYear, minMonth, minDay } = statisticsMeta
 
       const isDecrementYearEnabled = minYear < year
       const isDecrementMonthEnabled =
@@ -158,7 +160,7 @@ const StatisticsPage = () => {
           onSetDay={value =>
             dispatchSelectedDate({
               type: 'SET_DAY',
-              statisticsMeta: dummyStatistics.meta,
+              statisticsMeta: statisticsMeta,
               value,
             })
           }
@@ -169,13 +171,13 @@ const StatisticsPage = () => {
             onIncrementDay={() =>
               dispatchSelectedDate({
                 type: 'INCREMENT_DAY',
-                statisticsMeta: dummyStatistics.meta,
+                statisticsMeta: statisticsMeta,
               })
             }
             onDecrementDay={() =>
               dispatchSelectedDate({
                 type: 'DECREMENT_DAY',
-                statisticsMeta: dummyStatistics.meta,
+                statisticsMeta: statisticsMeta,
               })
             }
           />
@@ -184,25 +186,25 @@ const StatisticsPage = () => {
             onIncrementMonth={() =>
               dispatchSelectedDate({
                 type: 'INCREMENT_MONTH',
-                statisticsMeta: dummyStatistics.meta,
+                statisticsMeta: statisticsMeta,
               })
             }
             onDecrementMonth={() =>
               dispatchSelectedDate({
                 type: 'DECREMENT_MONTH',
-                statisticsMeta: dummyStatistics.meta,
+                statisticsMeta: statisticsMeta,
               })
             }
             onIncrementYear={() =>
               dispatchSelectedDate({
                 type: 'INCREMENT_YEAR',
-                statisticsMeta: dummyStatistics.meta,
+                statisticsMeta: statisticsMeta,
               })
             }
             onDecrementYear={() =>
               dispatchSelectedDate({
                 type: 'DECREMENT_YEAR',
-                statisticsMeta: dummyStatistics.meta,
+                statisticsMeta: statisticsMeta,
               })
             }
           />
