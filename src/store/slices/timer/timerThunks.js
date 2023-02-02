@@ -5,6 +5,8 @@ import { tickTimer } from '../../thunks'
 export const startTimer = () => {
   return async dispatch => {
     dispatch(timerSliceActions.startTimer())
-    setTimeout(() => dispatch(tickTimer()), 1000)
+
+    const startTime = new Date().getTime()
+    setTimeout(() => dispatch(tickTimer(startTime, 1000)), 1000)
   }
 }

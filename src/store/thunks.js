@@ -2,7 +2,7 @@ import { timerSliceActions } from './slices/timer'
 import { tasksSliceActions } from './slices/tasks'
 import { statisticsSliceActions } from './slices/statistics'
 
-export const tickTimer = () => {
+export const tickTimer = (startTime, curInterval) => {
   return (dispatch, getState) => {
     const { currentEvent, statistics } = getState().timer
     const [firstTask] = getState().tasks
@@ -36,7 +36,10 @@ export const tickTimer = () => {
       dispatch(timerSliceActions.decrementRemainingTime())
     }
 
-    setTimeout(() => dispatch(tickTimer()), 1000)
+    const currentTime = new Date().getTime()
+    const diff = currentTime - startTime - 1000
+    const newInterval = curInterval - diff
+    setTimeout(() => dispatch(tickTimer(currentTime, newInterval)), newInterval)
   }
 }
 
