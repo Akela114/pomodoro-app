@@ -1,4 +1,4 @@
-<img src="/src/assets/logo.png" height="40" />
+<img src="/src/assets/logo.jpg" height="40" />
 
 [К приложению](https://pomodoro-tasks-app.netlify.app/)
 
